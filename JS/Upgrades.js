@@ -1,0 +1,266 @@
+Upgrades = {
+    Stone_up1: {
+        effect: new Decimal(1),
+        cost: new Decimal(50)
+    },
+    Stone_up2: {
+        effect: new Decimal(1),
+        cost: new Decimal(100)
+    },
+    Wood_up1: {
+        effect: new Decimal(1),
+        cost: new Decimal(50)
+    },
+    Wood_up2: {
+        effect: new Decimal(1),
+        cost: new Decimal(100)
+    },
+    Iron_ore_up1: {
+        effect: new Decimal(1),
+        cost: new Decimal(50)
+    },
+    Iron_ore_up2: {
+        effect: new Decimal(1),
+        cost: new Decimal(100)
+    },
+    Gold_ore_up1: {
+        effect: new Decimal(1),
+        cost: new Decimal(50)
+    },
+    Gold_ore_up2: {
+        effect: new Decimal(1),
+        cost: new Decimal(100)
+    },
+    Diamond_up1: {
+        effect: new Decimal(1),
+        cost: new Decimal(50)
+    },
+    Diamond_up2: {
+        effect: new Decimal(1),
+        cost: new Decimal(100)
+    },
+}
+
+Craft_Upgrades = {
+    Craft_up1: {
+        effect: new Decimal(5),
+        bought: false,
+    },
+    Craft_up2: {
+        effect: new Decimal(10),
+        bought: false,
+    },
+    Craft_up3: {
+        effect: new Decimal(10),
+        bought: false,
+    },
+    Craft_up4: {
+        effect: new Decimal(40),
+        bought: false,
+    },
+    Craft_up5: {
+        effect: new Decimal(60),
+        bought: false,
+    },
+    Craft_up6: {
+        bought: false,
+    },
+    Craft_up7: {
+        bought: false,
+    },
+    Craft_up8: {
+        bought: false,
+    },
+}
+
+function BuyStoneUp1() {
+    if(player.Stone.gte(Upgrades.Stone_up1.cost)) {
+        player.Stone = player.Stone.sub(Upgrades.Stone_up1.cost)
+        player.Gain_Stone = player.Gain_Stone.add(Upgrades.Stone_up1.effect)
+        Upgrades.Stone_up1.cost = Upgrades.Stone_up1.cost.mul(1.3)
+    }
+}
+
+function BuyStoneUp2() {
+    if(player.Stone.gte(Upgrades.Stone_up2.cost)) {
+        player.Stone = player.Stone.sub(Upgrades.Stone_up2.cost)
+        player.Stone_perSec = player.Stone_perSec.add(Upgrades.Stone_up2.effect)
+        Upgrades.Stone_up2.cost = Upgrades.Stone_up2.cost.mul(1.5)
+    }
+}
+
+function BuyWoodUp1() {
+    if(player.Wood.gte(Upgrades.Wood_up1.cost)) {
+        player.Wood = player.Wood.sub(Upgrades.Wood_up1.cost)
+        player.Gain_Wood = player.Gain_Wood.add(Upgrades.Wood_up1.effect)
+        Upgrades.Wood_up1.cost = Upgrades.Wood_up1.cost.mul(1.3)
+    }
+}
+
+function BuyWoodUp2() {
+    if(player.Wood.gte(Upgrades.Wood_up2.cost)) {
+        player.Wood = player.Wood.sub(Upgrades.Wood_up2.cost)
+        player.Wood_perSec = player.Wood_perSec.add(Upgrades.Wood_up2.effect)
+        Upgrades.Wood_up1.cost = Upgrades.Wood_up1.cost.mul(1.5)
+    }
+}
+
+function BuyIronUp1() {
+    if(player.Iron_ore.gte(Upgrades.Iron_ore_up1.cost)) {
+        player.Iron_ore = player.Wood.sub(Upgrades.Iron_ore_up1.cost)
+        player.Gain_Iron_ore = player.Gain_Iron_ore.add(Upgrades.Iron_ore_up1.effect)
+        Upgrades.Iron_ore_up1.cost = Upgrades.Iron_ore_up1.cost.mul(1.3)
+    }
+}
+
+function BuyIronUp2() {
+    if(player.Iron_ore.gte(Upgrades.Iron_ore_up2.cost)) {
+        player.Iron_ore = player.Iron_ore.sub(Upgrades.Iron_ore_up2.cost)
+        player.Iron_perSec = player.Iron_ore_perSec.add(Upgrades.Iron_ore_up2.effect)
+        Upgrades.Iron_ore_up1.cost = Upgrades.Iron_ore_up1.cost.mul(1.5)
+    }
+}
+
+function BuyGoldUp1() {
+    if(player.Gold_ore.gte(Upgrades.Gold_ore_up1.cost)) {
+        player.Gold_ore = player.Gold_ore.sub(Upgrades.Gold_ore_up1.cost)
+        player.Gain_Gold_ore = player.Gain_Gold_ore.add(Upgrades.Gold_ore_up1.effect)
+        Upgrades.Gold_ore_up1.cost = Upgrades.Gold_ore_up1.cost.mul(1.3)
+    }
+}
+
+function BuyGoldUp2() {
+    if(player.Gold_ore.gte(Upgrades.Gold_ore_up2.cost)) {
+        player.Gold_ore = player.Gold_ore.sub(Upgrades.Gold_ore.cost)
+        player.Gold_perSec = player.Gold_perSec.add(Upgrades.Gold_ore_up2.effect)
+        Upgrades.Gold_ore_up1.cost = Upgrades.Gold_ore_up1.cost.mul(1.5)
+    }
+}
+
+function BuyDiamondUp1() {
+    if(player.Diamond.gte(Upgrades.Diamond_up1.cost)) {
+        player.Diamond = player.Diamond.sub(Upgrades.Diamond_up1.cost)
+        player.Gain_Diamond = player.Gain_Diamond.add(Upgrades.Diamond_up1.effect)
+        Upgrades.Diamond_up1.cost = Upgrades.Diamond_up1.cost.mul(1.3)
+    }
+}
+
+function BuyDiamondUp2() {
+    if(player.Diamond.gte(Upgrades.Diamond_up2.cost)) {
+        player.Diamond = player.Diamond.sub(Upgrades.Diamond.cost)
+        player.Diamonds_perSec = player.Diamonds_perSec.add(Upgrades.Diamond_up2.effect)
+        Upgrades.Diamond_up1.cost = Upgrades.Diamond_up1.cost.mul(1.5)
+    }
+}
+
+function BuyCraftUp1() {
+    if(Craft_Upgrades.Craft_up1.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Sticks.gte(10) && player.Stone.gte(5) && player.Crafting_power.gte(30)) {
+        player.Sticks = player.Sticks.sub(10)
+        player.Stone = player.Stone.sub(5)
+        player.Crafting_power = player.Crafting_power.sub(30)
+        player.Gain_Stone = player.Gain_Stone.add(Craft_Upgrades.Craft_up1.effect)
+        Craft_Upgrades.Craft_up1.bought = true
+    }
+}
+
+function BuyCraftUp2() {
+    if(Craft_Upgrades.Craft_up2.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Sticks.gte(10) && player.Stone.gte(15) && player.Crafting_power.gte(50)) {
+        player.Sticks = player.Sticks.sub(10)
+        player.Stone = player.Stone.sub(15)
+        player.Crafting_power = player.Crafting_power.sub(50)
+        player.Gain_Wood = player.Gain_Wood.add(Craft_Upgrades.Craft_up2.effect)
+        Craft_Upgrades.Craft_up2.bought = true
+    }
+}
+
+function BuyCraftUp3() {
+    if(Craft_Upgrades.Craft_up3.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Wood.gte(500) && player.Stone.gte(1000) && player.Crafting_power.gte(200)) {
+        player.Wood = player.Wood.sub(500)
+        player.Stone = player.Stone.sub(1000)
+        player.Crafting_power = player.Crafting_power.sub(200)
+        player.Stone_perSec = player.Stone_perSec.add(Craft_Upgrades.Craft_up3.effect)
+        player.Wood_perSec = player.Wood_perSec.add(Craft_Upgrades.Craft_up3.effect)
+        Craft_Upgrades.Craft_up3.bought = true
+    }
+}
+
+function BuyCraftUp4() {
+    if(Craft_Upgrades.Craft_up4.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Sticks.gte(100) && player.Iron.gte(20) && player.Crafting_power.gte(125)) {
+        player.Sticks = player.Sticks.sub(100)
+        player.Iron = player.Iron.sub(20)
+        player.Crafting_power = player.Crafting_power.sub(125)
+        player.Gain_Stone = player.Gain_Stone.add(Craft_Upgrades.Craft_up4.effect)
+        Craft_Upgrades.Craft_up4.bought = true
+    }
+}
+
+function BuyCraftUp5() {
+    if(Craft_Upgrades.Craft_up5.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Sticks.gte(100) && player.Iron.gte(50) && player.Crafting_power.gte(300)) {
+        player.Sticks = player.Sticks.sub(100)
+        player.Iron = player.Iron.sub(50)
+        player.Crafting_power = player.Crafting_power.sub(300)
+        player.Gain_Wood = player.Gain_Wood.add(Craft_Upgrades.Craft_up5.effect)
+        Craft_Upgrades.Craft_up5.bought = true
+    }
+}
+
+function BuyCraftUp6() {
+    if(Craft_Upgrades.Craft_up6.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Sticks.gte(300) && player.Stone.gte(7000) && player.Crafting_power.gte(1000) && player.Wood.gte(4000) && player.Iron.gte(300) && player.Gold.gte(100) && player.Smooth_Stone.gte(1500)) {
+        player.Sticks = player.Sticks.sub(10)
+        player.Stone = player.Stone.sub(5)
+        player.Crafting_power = player.Crafting_power.sub(30)
+        player.Gain_Stone = player.Gain_Stone.add(Craft_Upgrades.Craft_up6.effect)
+        Craft_Upgrades.Craft_up6.bought = true
+    }
+}
+
+function BuyCraftUp7() {
+    if(Craft_Upgrades.Craft_up7.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Stone.gte(2000) && player.Crafting_power.gte(100)) {
+        player.Stone = player.Stone.sub(150)
+        player.Crafting_power = player.Crafting_power.sub(100)
+        Craft_Upgrades.Craft_up7.bought = true
+    }
+}
+
+function BuyCraftUp8() {
+    if(Craft_Upgrades.Craft_up8.bought === true) {
+        player.Sticks = player.Sticks.sub(0)
+        player.Stone = player.Stone.sub(0)
+    }
+    else if(player.Sticks.gte(200) && player.Diamond.gte(400) &&player.Crafting_power.gte(500)) {
+        player.Sticks = player.Sticks.sub(200)
+        player.Diamond = player.Diamond.sub(150)
+        player.Crafting_power = player.Crafting_power.sub(500)
+        player.Gain_Stone = player.Gain_Stone.add(100)
+        player.Gain_Wood = player.Gain_Wood.add(150)
+        Craft_Upgrades.Craft_up7.bought = true
+    }
+}

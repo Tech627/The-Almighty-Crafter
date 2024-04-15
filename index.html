@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>The Almighty Crafter</title>
+</head>
+<body>
+    <div id="Crafting-power">You have 0 Crafting Power</div>
+    <div id="Gain-Cp" onclick="GainCp()"> Get 1 Crafting Power </div>
+    <div class="tabs">
+        <div id="Materials-tab" role="tab" onclick="OpenMaterialsContent()"> Materials </div>
+        <div id="Crafting-tab" role="tab" onclick="OpenCraftingContent()"> Crafting </div>
+    </div>
+    <div class="Materials-content" id="Materials-content">
+        <div id="Stone-content">
+            <div id="Stone"> 0 Stone </div>
+            <div id="Gain-Stone"> +1 Stone/click </div>
+            <div id="Stone-img" onclick="GainStone()"><img src="images/Stone.png" id="Stone-img"></div>
+            <div id="Stone-Upgrades">
+                <div id="Stone-up1" onclick="BuyStoneUp1()"> Stone Upgrade 1
+                    <div id="Stone-up1-description"> Gain an extra Stone/click </div>
+                    <div id="Stone-up1-cost"> Cost: 50 Stone </div>
+                </div>
+                <div id="Stone-up2" onclick="BuyStoneUp2()"> Stone Upgrade 2
+                    <div id="Stone-up2-description"> Get your own miner who mines 1 Stone/sec </div>
+                    <div id="Stone-up2-cost"> Cost: 100 Stone </div>
+                </div>
+            </div>
+        </div>
+        <div id="Wood-content">
+            <div id="Wood"> 0 Wood </div>
+            <div id="Gain-Wood"> +1 Wood/click </div>
+            <div id="Wood-img" onclick="GainWood()"><img src="images/Wood.png" id="Wood-img"></div>
+            <div id="Wood-Upgrades">
+                <div id="Wood-up1" onclick="BuyWoodUp1()"> Wood Upgrade 1
+                    <div id="Wood-up1-description"> Gain an extra Wood/click </div>
+                    <div id="Wood-up1-cost"> Cost: 50 Wood </div>
+                </div>
+                <div id="Wood-up2" onclick="BuyWoodUp2()"> Wood Upgrade 2
+                    <div id="Wood-up2-description"> Get your own lumberjack who mines 1 Wood/sec </div>
+                    <div id="Wood-up2-cost"> Cost: 100 Wood </div>
+                </div>
+            </div>
+        </div>
+        <div id="Iron-content">
+            <div id="Iron"> 0 Iron ore </div>
+            <div id="Gain-Iron"> +1 Iron ore/click </div>
+            <div id="Iron-img" onclick="GainIron()"><img src="images/Iron ore.png" id="Ironore-img"></div>
+            <div id="Iron-Upgrades">
+                <div id="Iron-up1" onclick="BuyIronUp1()"> Iron Upgrade 1
+                    <div id="Iron-up1-description"> Gain an extra Iron ore/click </div>
+                    <div id="Iron-up1-cost"> Cost: 50 Iron </div>
+                </div>
+                <div id="Iron-up2" onclick="BuyIronUp2()"> Iron Upgrade 2
+                    <div id="Iron-up2-description"> Get your own Iron miner who mines 1 Iron ore/sec </div>
+                    <div id="Iron-up2-cost"> Cost: 100 Iron </div>
+                </div>
+            </div>
+        </div>
+        <div id="Gold-content">
+            <div id="Gold"> 0 Gold ore </div>
+            <div id="Gain-Gold"> +1 Gold ore/click </div>
+            <div id="Gold-img" onclick="GainGold()"><img src="images/Gold ore.png" id="Goldore-img"></div>
+            <div id="Gold-Upgrades">
+                <div id="Gold-up1" onclick="BuyGoldUp1()"> Gold Upgrade 1
+                    <div id="Gold-up1-description"> Gain an extra Gold ore/click </div>
+                    <div id="Gold-up1-cost"> Cost: 50 Gold </div>
+                </div>
+                <div id="Gold-up2" onclick="BuyGoldUp2()"> Gold Upgrade 2
+                    <div id="Gold-up2-description"> Get your own Gold miner who mines 1 Gold ore/sec </div>
+                    <div id="Gold-up2-cost"> Cost: 100 Gold </div>
+                </div>
+            </div>
+        </div>
+        <div id="Diamond-content">
+            <div id="Diamond"> 0 Diamonds </div>
+            <div id="Gain-Diamond"> +1 Diamonds/click </div>
+            <div id="Diamond-img" onclick="GainDiamond()"><img src="images/Diamond.png" id="Diamond-img"></div>
+            <div id="Diamond-Upgrades">
+                <div id="Diamond-up1" onclick="BuyDiamondUp1()"> Diamond Upgrade 1
+                    <div id="Diamond-up1-description"> Gain an extra Gold ore/click </div>
+                    <div id="Diamond-up1-cost"> Cost: 50 Diamond </div>
+                </div>
+                <div id="Diamond-up2" onclick="BuyDiamondUp2()"> Diamond Upgrade 2
+                    <div id="Diamond-up2-description"> Get your own Gold miner who mines 1 Gold ore/sec </div>
+                    <div id="Diamond-up2-cost"> Cost: 100 Diamond </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Crafting-content" id="Crafting-content">
+        <div id="Converting-content">
+            <div id="Converting-name"> Converting </div>
+            <div id="Wood-to-Sticks">
+                <img src="images/Wood.png" id="Wood-img2">
+                <img src="images/arrow.png" id="Wood-to-Sticks-arrow">
+                <img src="images/stick.png" id="Stick-img">
+                <div id="Convert-to-Sticks" onclick="ConvertWoodtoSticks()"> Convert Wood to Sticks <br> get <input type="text" id="Sticks-input"> Stick for Wood </div>
+                <div id="Sticks"> You have 0 Sticks </div>
+            </div>
+            <div id="Stone-to-SmoothStone">
+                <img src="images/Stone.png" id="Stone-img2">
+                <img src="images/arrow.png" id="Stone-to-SmoothStone-arrow">
+                <img src="images/smooth stone.Png" id="SmoothStone-img">
+                <div id="TurnOnSmoothStoneConverting" onclick="TurnOnSmoothStoneConverting()"> On </div>
+                <div id="SmoothStone-timer"> 5.00s </div>
+                <div id="TurnOffSmoothStoneConverting" onclick="TurnOffSmoothStoneConverting()"> Off </div>
+                <div id="SmoothStone"> You have 0 Smooth Stone </div>
+            </div>
+        </div>
+        <div id="Craft-content">
+            <div id="Crafting-name"> Crafting </div>
+            <div id="Craft1" onclick="BuyCraftUp1()">
+                <div id="Craft1-name"> Pickaxe </div>
+                <div id="Craft1-description"> For 10 sticks and 5 stone get a pickaxe which gets you +5 Stone/click <br> req: 30 Crafting Power </div>
+            </div>
+            <div id="Craft2" onclick="BuyCraftUp2()">
+                <div id="Craft2-name"> Axe </div>
+                <div id="Craft2-description"> For 10 sticks and 15 stone get a axe which gets you +10 Wood/click <br> req: 50 Crafting Power </div>
+            </div>
+            <div id="Craft3" onclick="BuyCraftUp3()">
+                <div id="Craft3-name"> Automation Age </div>
+                <div id="Craft3-description"> For 500 Wood and 1000 Stone get a lumberjack and a miner which gets you +10 Wood and +10 Stone/sec <br> req: 200 Crafting Power </div>
+            </div>
+            <div id="Craft4" onclick="BuyCraftUp4()">
+                <div id="Craft4-name"> Iron Pickaxe </div>
+                <div id="Craft4-description"> For 100 sticks and 20 Iron get a pickaxe which gets you +40 Stone/click <br> req: 125 Crafting Power </div>
+            </div>
+            <div id="Craft5" onclick="BuyCraftUp5()">
+                <div id="Craft5-name"> Iron Axe </div>
+                <div id="Craft5-description"> For 100 sticks and 50 Iron get a pickaxe which gets you +60 Wood/click <br> req: 300 Crafting Power </div>
+            </div>
+            <div id="Craft6" onclick="BuyCraftUp6()">
+                <div id="Craft6-name"> Portal </div>
+                <div id="Craft6-description"> For 4000 Wood, 300 sticks, 7000 Stone, 1500 Smooth Stone, 300 Iron, 100 Gold to get a portal to unlock new materials <br> req: 1000 Crafting Power </div>
+            </div>
+            <div id="Craft7" onclick="BuyCraftUp7()">
+                <div id="Craft7-name"> Furnace </div>
+                <div id="Craft7-description"> for 2000 Stone Unlock the Furnace to smelt Iron and Gold ore <br> req: 100 Crafting Power </div>
+            </div>
+            <div id="Craft8" onclick="BuyCraftUp8()">
+                <div id="Craft8-name"> Diamond Tools </div>
+                <div id="Craft8-description"> for 400 Diamond and 200 Sticks get +100 Stone/click and +150 Wood/click <br> req: 500 Crafting Power </div>
+            </div>
+        </div>
+        <div id="Craft-upgrades">
+
+        </div>
+    </div>
+    <div id="Version-name"> V0.1 Indev </div>
+</body>
+<script src="JS/break_eternity.js"></script>
+<script src="JS/numberformating.js"></script>
+<script src="JS/main.js"></script>
+<script src="JS/Gameloop.js"></script>
+<script src="JS/tabs.js"></script>
+<script src="JS/Upgrades.js"></script>
+<script src="JS/Converting.js"></script>
+</html>
