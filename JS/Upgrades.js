@@ -39,6 +39,30 @@ Upgrades = {
         effect: new Decimal(1),
         cost: new Decimal(100)
     },
+    Ruby_up1: {
+        effect: new Decimal(0.05),
+        cost: new Decimal(2)
+    },
+    Ruby_up2: {
+        effect: new Decimal(0.025),
+        cost: new Decimal(3)
+    },
+    Emerald_up1: {
+        effect: new Decimal(0.05),
+        cost: new Decimal(2)
+    },
+    Emerald_up2: {
+        effect: new Decimal(0.025),
+        cost: new Decimal(3)
+    },
+    Titanium_up1: {
+        effect: new Decimal(0.01),
+        cost: new Decimal(1)
+    },
+    Titanium_up2: {
+        effect: new Decimal(0.005),
+        cost: new Decimal(2)
+    }
 }
 
 Craft_Upgrades = {
@@ -101,7 +125,7 @@ function BuyWoodUp2() {
     if(player.Wood.gte(Upgrades.Wood_up2.cost)) {
         player.Wood = player.Wood.sub(Upgrades.Wood_up2.cost)
         player.Wood_perSec = player.Wood_perSec.add(Upgrades.Wood_up2.effect)
-        Upgrades.Wood_up1.cost = Upgrades.Wood_up1.cost.mul(1.5)
+        Upgrades.Wood_up2.cost = Upgrades.Wood_up2.cost.mul(1.5)
     }
 }
 
@@ -117,7 +141,7 @@ function BuyIronUp2() {
     if(player.Iron_ore.gte(Upgrades.Iron_ore_up2.cost)) {
         player.Iron_ore = player.Iron_ore.sub(Upgrades.Iron_ore_up2.cost)
         player.Iron_perSec = player.Iron_ore_perSec.add(Upgrades.Iron_ore_up2.effect)
-        Upgrades.Iron_ore_up1.cost = Upgrades.Iron_ore_up1.cost.mul(1.5)
+        Upgrades.Iron_ore_up2.cost = Upgrades.Iron_ore_up2.cost.mul(1.5)
     }
 }
 
@@ -132,8 +156,8 @@ function BuyGoldUp1() {
 function BuyGoldUp2() {
     if(player.Gold_ore.gte(Upgrades.Gold_ore_up2.cost)) {
         player.Gold_ore = player.Gold_ore.sub(Upgrades.Gold_ore.cost)
-        player.Gold_perSec = player.Gold_perSec.add(Upgrades.Gold_ore_up2.effect)
-        Upgrades.Gold_ore_up1.cost = Upgrades.Gold_ore_up1.cost.mul(1.5)
+        player.Gold_preSec = player.Gold_preSec.add(Upgrades.Gold_ore_up2.effect)
+        Upgrades.Gold_ore_up2.cost = Upgrades.Gold_ore_up2.cost.mul(1.5)
     }
 }
 
@@ -147,9 +171,57 @@ function BuyDiamondUp1() {
 
 function BuyDiamondUp2() {
     if(player.Diamond.gte(Upgrades.Diamond_up2.cost)) {
-        player.Diamond = player.Diamond.sub(Upgrades.Diamond.cost)
+        player.Diamond = player.Diamond.sub(Upgrades.Diamond_up2.cost)
         player.Diamonds_perSec = player.Diamonds_perSec.add(Upgrades.Diamond_up2.effect)
-        Upgrades.Diamond_up1.cost = Upgrades.Diamond_up1.cost.mul(1.5)
+        Upgrades.Diamond_up2.cost = Upgrades.Diamond_up2.cost.mul(1.5)
+    }
+}
+
+function BuyRubyUp1() {
+    if(player.Ruby.gte(Upgrades.Ruby_up1.cost)) {
+        player.Ruby = player.Ruby.sub(Upgrades.Ruby_up1.cost)
+        player.Ruby_gain = player.Ruby_gain.add(Upgrades.Ruby_up1.effect)
+        Upgrades.Ruby_up1.cost = Upgrades.Ruby_up1.cost.mul(1.1)
+    }
+}
+
+function BuyRubyUp2() {
+    if(player.Ruby.gte(Upgrades.Ruby_up2.cost)) {
+        player.Ruby = player.Ruby.sub(Upgrades.Ruby_up2.cost)
+        player.Ruby_persec = player.Ruby_persec.add(Upgrades.Ruby_up2.effect)
+        Upgrades.Ruby_up2.cost = Upgrades.Ruby_up2.cost.mul(1.2)
+    }
+}
+
+function BuyEmeraldUp1() {
+    if(player.Emeralds.gte(Upgrades.Emerald_up1.cost)) {
+        player.Emeralds = player.Emeralds.sub(Upgrades.Emerald_up1.cost)
+        player.Emeralds_gain = player.Emeralds_gain.add(Upgrades.Emerald_up1.effect)
+        Upgrades.Emerald_up1.cost = Upgrades.Emerald_up1.cost.mul(1.1)
+    }
+}
+
+function BuyEmeraldUp2() {
+    if(player.Emerald.gte(Upgrades.Emerald_up2.cost)) {
+        player.Emerald = player.Emerald.sub(Upgrades.Emerald_up2.cost)
+        player.Emerald_persec = player.Emerald_persec.add(Upgrades.Emerald_up2.effect)
+        Upgrades.Emerald_up2.cost = Upgrades.Emerald_up2.cost.mul(1.2)
+    }
+}
+
+function BuyTitaniumUp1() {
+    if(player.Titanium.gte(Upgrades.Titanium_up1.cost)) {
+        player.Titanium = player.Titanium.sub(Upgrades.Titanium_up1.cost)
+        player.Titanium_gain = player.Titanium_gain.add(Upgrades.Titanium_up1.effect)
+        Upgrades.Titanium_up1.cost = Upgrades.Titanium_up1.cost.mul(1.05)
+    }
+}
+
+function BuyTitaniumUp2() {
+    if(player.Titanium.gte(Upgrades.Titanium_up2.cost)) {
+        player.Titanium = player.Titanium.sub(Upgrades.Titanium_up2.cost)
+        player.Titanium_persec = player.Titanium_persec.add(Upgrades.Titanium_up2.effect)
+        Upgrades.Titanium_up2.cost = Upgrades.Titanium_up2.cost.mul(1.15)
     }
 }
 
@@ -244,7 +316,7 @@ function BuyCraftUp7() {
         player.Stone = player.Stone.sub(0)
     }
     else if(player.Stone.gte(2000) && player.Crafting_power.gte(100)) {
-        player.Stone = player.Stone.sub(150)
+        player.Stone = player.Stone.sub(2000)
         player.Crafting_power = player.Crafting_power.sub(100)
         Craft_Upgrades.Craft_up7.bought = true
     }
@@ -257,7 +329,7 @@ function BuyCraftUp8() {
     }
     else if(player.Sticks.gte(200) && player.Diamond.gte(400) &&player.Crafting_power.gte(500)) {
         player.Sticks = player.Sticks.sub(200)
-        player.Diamond = player.Diamond.sub(150)
+        player.Diamond = player.Diamond.sub(400)
         player.Crafting_power = player.Crafting_power.sub(500)
         player.Gain_Stone = player.Gain_Stone.add(100)
         player.Gain_Wood = player.Gain_Wood.add(150)

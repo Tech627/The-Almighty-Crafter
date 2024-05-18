@@ -5,12 +5,15 @@
     <link rel="stylesheet" href="styles.css">
     <title>The Almighty Crafter</title>
 </head>
-<body>
+<body onload="Get()">
     <div id="Crafting-power">You have 0 Crafting Power</div>
     <div id="Gain-Cp" onclick="GainCp()"> Get 1 Crafting Power </div>
+    <div class="Expirience-name" id="Expirience-name"> 0 Experience </div>
+    <div class="Gain-Exp" id="Gain-Exp" onclick="ExperienceReset()"> Gain 1 Exp for 1000 Crafting Knowledge </div>
     <div class="tabs">
         <div id="Materials-tab" role="tab" onclick="OpenMaterialsContent()"> Materials </div>
         <div id="Crafting-tab" role="tab" onclick="OpenCraftingContent()"> Crafting </div>
+        <div class="Experience-tab" id="Experience-tab" role="tab" onclick="OpenExperienceContent()"> Experience </div>
     </div>
     <div class="Materials-content" id="Materials-content">
         <div id="Stone-content">
@@ -68,7 +71,7 @@
                     <div id="Gold-up1-cost"> Cost: 50 Gold </div>
                 </div>
                 <div id="Gold-up2" onclick="BuyGoldUp2()"> Gold Upgrade 2
-                    <div id="Gold-up2-description"> Get your own Gold miner who mines 1 Gold ore/sec </div>
+                    <div id="Gold-up2-description"> Get your own Gm who mines 1 Gold ore/sec </div>
                     <div id="Gold-up2-cost"> Cost: 100 Gold </div>
                 </div>
             </div>
@@ -79,12 +82,59 @@
             <div id="Diamond-img" onclick="GainDiamond()"><img src="images/Diamond.png" id="Diamond-img"></div>
             <div id="Diamond-Upgrades">
                 <div id="Diamond-up1" onclick="BuyDiamondUp1()"> Diamond Upgrade 1
-                    <div id="Diamond-up1-description"> Gain an extra Gold ore/click </div>
+                    <div id="Diamond-up1-description"> Gain an extra Diamond/click </div>
                     <div id="Diamond-up1-cost"> Cost: 50 Diamond </div>
                 </div>
                 <div id="Diamond-up2" onclick="BuyDiamondUp2()"> Diamond Upgrade 2
-                    <div id="Diamond-up2-description"> Get your own Gold miner who mines 1 Gold ore/sec </div>
+                    <div id="Diamond-up2-description"> Get your own Dm who mines 1 Diamonds/sec </div>
                     <div id="Diamond-up2-cost"> Cost: 100 Diamond </div>
+                </div>
+            </div>
+        </div>
+        <div class="Materials-row2" id="Materials-row2">
+            <div id="Ruby-content">
+                <div id="Ruby"> 0 Ruby </div>
+                <div id="Gain-Ruby"> +0.05 Rubies/click </div>
+                <div id="Ruby-img" onclick="GainRuby()"><img src="images/Ruby.png" id="Ruby-img"></div>
+                <div id="Ruby-upgrades">
+                    <div id="Ruby-up1" onclick="BuyRubyUp1()"> Ruby Upgrade 1 
+                        <div id="Ruby-up1-description"> Gain 0.05 more Ruby/click </div>
+                        <div id="Ruby-up1-cost"> cost: 2 Ruby </div>
+                    </div>
+                    <div id="Ruby-up2" onclick="BuyRubyUp2()"> Ruby Upgrade 2 
+                        <div id="Ruby-up2-description"> Get your own Rm who mines 0.025 Ruby/sec </div>
+                        <div id="Ruby-up2-cost"> Cost: 3 Ruby </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Emeralds-content">
+                <div id="Emerald"> 0 Emeralds </div>
+                <div id="Gain-Emerald"> +0.05 Emeralds/click </div>
+                <div id="Emerald-img" onclick="GainEmeralds()"><img src="images/Emerald.png" id="Emerald-img"></div>
+                <div id="Emerald-upgrades">
+                    <div id="Emerald-up1" onclick="BuyEmeraldUp1()"> Emerald Upgrade 1 
+                        <div id="Emerald-up1-description"> Gain 0.05 more Emeralds/click </div>
+                        <div id="Emerald-up1-cost"> Cost: 2 Emeralds </div>
+                    </div>
+                    <div id="Emerald-up2" onclick="BuyEmeraldUp2()"> Emerald Upgrade 2 
+                        <div id="Emerald-up2-description"> Get your own Em who mines 0.025 Emeralds/sec </div>
+                        <div id="Emerald-up2-cost"> Cost: 3 Emeralds </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Titanium-content">
+                <div id="Titanium"> 0 Titanium </div>
+                <div id="Gain-Titanium"> +0.01 Titanium/click </div>
+                <div id="Titanium-img" onclick="GainTitanium()"><img src="images/Titanium.png" id="Titanium-img"></div>
+                <div id="Titanium-upgrades">
+                    <div id="Titanium-up1" onclick="BuyTitaniumUp1()"> Titanium Upgrade 1 
+                        <div id="Titanium-up1-description"> Gain 0.01 more Titanium/click </div>
+                        <div id="Titanium-up1-cost"> Cost: 1 Titanium</div>
+                    </div>
+                    <div id="Titanium-up2" onclick="BuyTitaniumUp2()"> Titanium Upgrade 2 
+                        <div id="Titanium-up2-description"> Get your own Tm who mines 0.005 Titanium/sec </div>
+                        <div id="Titanium-up2-cost"> Cost: 2 Titanium </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,14 +149,34 @@
                 <div id="Convert-to-Sticks" onclick="ConvertWoodtoSticks()"> Convert Wood to Sticks <br> get <input type="text" id="Sticks-input"> Stick for Wood </div>
                 <div id="Sticks"> You have 0 Sticks </div>
             </div>
-            <div id="Stone-to-SmoothStone">
-                <img src="images/Stone.png" id="Stone-img2">
-                <img src="images/arrow.png" id="Stone-to-SmoothStone-arrow">
-                <img src="images/Smooth stone.Png" id="SmoothStone-img">
-                <div id="TurnOnSmoothStoneConverting" onclick="TurnOnSmoothStoneConverting()"> On </div>
-                <div id="SmoothStone-timer"> 5.00s </div>
-                <div id="TurnOffSmoothStoneConverting" onclick="TurnOffSmoothStoneConverting()"> Off </div>
-                <div id="SmoothStone"> You have 0 Smooth Stone </div>
+            <div class="Smelting-items" id="Smelting-items">
+                <div id="Stone-to-SmoothStone">
+                    <img src="images/Stone.png" id="Stone-img2">
+                    <img src="images/arrow.png" id="Stone-to-SmoothStone-arrow">
+                    <img src="images/Smooth stone.Png" id="SmoothStone-img">
+                    <div id="TurnOnSmoothStoneConverting" onclick="TurnOnSmoothStoneConverting()"> On </div>
+                    <div id="SmoothStone-timer"> 5.00s </div>
+                    <div id="TurnOffSmoothStoneConverting" onclick="TurnOffSmoothStoneConverting()"> Off </div>
+                    <div id="SmoothStone"> You have 0 Smooth Stone </div>
+                </div>
+                <div id="Iron-ore-to-Iron">
+                    <img src="images/Iron ore.png" id="Iron-ore-img2">
+                    <img src="images/arrow.png" id="Iron-ore-to-Iron-arrow">
+                    <img src="images/Iron.png" id="Iron-img2">
+                    <div id="TurnOnIronConverting" onclick="TurnOnIronConverting()"> On </div>
+                    <div id="Iron-timer"> 15.00s </div>
+                    <div id="TurnOffIronConverting" onclick="TurnOffIronConverting()"> Off </div>
+                    <div id="Iron2"> You have 0 Iron </div>
+                </div>
+                <div id="Gold-ore-to-Gold">
+                    <img src="images/Gold ore.png" id="Gold-ore-img2">
+                    <img src="images/arrow.png" id="Gold-ore-to-Gold-arrow">
+                    <img src="images/Gold.png" id="Gold-img2">
+                    <div id="TurnOnGoldConverting" onclick="TurnOnGoldConverting()"> On </div>
+                    <div id="Gold-timer"> 30.00s </div>
+                    <div id="TurnOffGoldConverting" onclick="TurnOffGoldConverting()"> Off </div>
+                    <div id="Gold2"> You have 0 Gold </div>
+                </div>
             </div>
         </div>
         <div id="Craft-content">
@@ -144,16 +214,74 @@
                 <div id="Craft8-description"> for 400 Diamond and 200 Sticks get +100 Stone/click and +150 Wood/click <br> req: 500 Crafting Power </div>
             </div>
         </div>
-        <div id="Craft-upgrades">
-
+        <div class="Craft-knowledge" id="Craft-knowledge">
+            <div id="Crafting-knowledge"> You have 0 Crafting Knowledge </div>
+            <div id="Craftingk-persec"> (+0/sec) </div>
+            <div id="Materials-to-Craftingk" onclick="MaterialsToCraftingk()"> Convert Stone, Wood, Iron and Gold into Crafting Knowledge.<br> base Gain: ((Stone/1000 + Wood/2500)^0.9) + ((Iron^0.9 x Gold^0.95) / 250)  </div>
+            <div id="Craftk-up1" onclick="TurnOnPowerSource()"> 
+                <div id="Craftk-up1-name"> [Power Source] </div> 
+                <div id="Craftk-up1-description"> Gain 0.1 Crafting power/sec </div>   
+                <div id="Craftk-up1-req"> req: Use up 1 Stone and 1 Wood during this process </div>
+            </div>
+            <div id="Craftk-up2" onclick="TurnOnNoTimewall()">
+                <div id="Craftk-up2-name"> [No Timewall] </div>
+                <div id="Craftk-up2-description"> Decrease time wait in converting.<br> Base: (Smooth Stone / 150)^0.5 + ((Iron x Gold) / 1000)^0.85 </div>
+                <div id="Craftk-up2-req"> req: Use up 1 Iron ore, Gold ore and Stone during this process </div>
+            </div>
+            <div id="Craftk-up3">
+                <div id="Craftk-up3-name"> [Experienced Crafter] </div>
+                <div id="Craftk-up3-description"> Decrease the Converting to Crafting knowledge base gain </div>
+                <div id="Craftk-up3-req"> req: Use up 10 Stone, Wood, Iron ore, Iron, Gold ore, Gold, Diamonds, Rubies, Emeralds and Titanium </div>
+            </div>
+            <div id="Note"> Note: You can only activate 1 </div>
         </div>
     </div>
-    <div id="Version-name"> V0.1 Indev </div>
+    <div class="Experience-content" id="Experience-content">
+        <div id="Ranking-tab" onclick="OpenRankingContent()"> Rank </div>
+        <div id="Progression-milestone-tab" onclick="OpenProgressionMilestonesContent()"> Progression Milestones </div>
+        <div id="Exploration-tab" onclick="OpenExplorationContent()"> Exploration </div>
+        <div class="Ranking-content" id="Ranking-content">
+            <div id="Class"> You are a Newbie </div>
+            <div id="Class-benefits"> As a Newbie you got 1x more Materials per click </div>
+            <div id="Class-upgrade" onclick="RankReset()"> Upgrade to a Beginner<br> Cost: 15,000 Stones; 20,000 Wood; 1,000 Iron; 750 Gold; 2,500 Diamond; 250 Ruby; 250 Emerald; 100 Titanium and 1,000 Experience </div>
+        </div>
+        <div class="Progression-Milestones-content" id="Progression-Milestones-content">
+            <div id="Milestone1">
+                <div id="Milestone1-name"> [Basic Resources Extincted] </div>
+                <div id="Milestone1-description"> Get a total of 200 Crafting Knowledge to Complete this Milestone while not getting any Wood or Stone </div>
+                <div id="Milestone1-reward"> Reward: Start with 100 Wood and Stone after an Experience reset </div>
+                <div id="Milestone1-Reached"> [In Progress] </div>
+            </div>
+            <div id="Milestone2">
+                <div id="Milestone2-name"> [No Knowledge now] </div>
+                <div id="Milestone2-description"> Get a total of 10,000 Crafting Knowledge while not using any of Crafting Knowledge content except the converter </div>
+                <div id="Milestone2-reward"> Reward: [Power Source] now grants you a total of 1 Crafting power/sec </div>
+                <div id="Milestone2-Reached"> [In Progress] </div>
+            </div>
+            <div id="Milestone3">
+                <div id="Milestone3-name"> [My Furnace broke] </div>
+                <div id="Milestone3-description"> Do a Experience reset while not unlocking Furnace </div>
+                <div id="Milestone3-reward"> Reward: The timer of every converting recipe is decreased by 2 seconds </div>
+                <div id="Milestone3-Reached"> [In Progress] </div>
+            </div>
+        </div>
+        <div class="Exploration-content" id="Exploration-content">
+            <div id="Enemy">
+                <div id="Enemy-hp"> 10hp </div>
+                <div id="Enemy-atk"> -1hp/atk </div>
+                <div id="Enemy-atks"> 0.3 attack/sec </div>
+                <div id="Lore"> ... </div>
+                <div id="Start-the-lore" onclick="StartTheLore()"> Start </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="JS/break_eternity.js"></script>
 <script src="JS/numberformating.js"></script>
 <script src="JS/main.js"></script>
 <script src="JS/Gameloop.js"></script>
+<script src="JS/Experience.js"></script>
+<script src="JS/save.js"></script>
 <script src="JS/tabs.js"></script>
 <script src="JS/Upgrades.js"></script>
 <script src="JS/Converting.js"></script>
