@@ -1,8 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     user-select: none;
     background-color: rgb(114, 40, 0);
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
+    overflow: visible;
 }
 
 #Crafting-power {
@@ -17,11 +22,8 @@ body {
     color: orangered;
     border: 1px solid red;
     border-radius: 10px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-top: 50px;
-    margin-left: 690px;
+    margin-top: 15px;
+    margin-inline: auto;
     width: 150px;
     height: 40px;
     padding-top: 10px;
@@ -40,22 +42,34 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 122px;
+    margin-top: 110px;
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;
-    column-gap: 10px;
     justify-content: center;
 }
 
+.Level {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #04aed8;
+    border: 2px solid blue;
+    padding: 5px;
+    margin: 5px;
+}
+
 #Materials-tab {
-    width: 200px;
+    width: 150px;
     height: 30px;
-    padding-top: 10px;
     background-color: #787366;
     border: 1px solid white;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 10px;
+    margin-right: 10px;
 }
 
 #Materials-tab:hover {
@@ -64,13 +78,16 @@ body {
 }
 
 #Crafting-tab {
-    width: 200px;
+    width: 150px;
     height: 30px;
-    padding-top: 10px;
     background-color: rgb(224, 95, 3);
     border: 1px solid rgb(255, 0, 0);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 10px;
+    margin-right: 10px;
 }
 
 #Crafting-tab:hover {
@@ -78,15 +95,18 @@ body {
     cursor: pointer;
 }
 
-.Experience-tab {
-    width: 200px;
+#Experience-tab {
+    width: 150px;
     height: 30px;
-    padding-top: 10px;
     background-color: rgb(8, 175, 8);
     border: 2px solid rgb(0, 72, 0);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 10px;
     visibility: collapse;
+    margin-right: 10px;
 }
 
 .show-Experience-tab {
@@ -98,41 +118,83 @@ body {
     cursor: pointer;
 }
 
+#Options-tab {
+    width: 150px;
+    height: 30px;
+    background-color: rgb(77, 77, 77);
+    border: 2px solid rgb(37, 37, 37);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    visibility: visible;
+}
+
+#Options-tab:hover {
+    background-color: rgb(97, 96, 96);
+    cursor: pointer;
+}
+
 .Materials-content {
     width: auto;
     height: 600px;
-    margin-top: 150px;
-    visibility: hidden;
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .Materials-row2 {
-    visibility: hidden;
+    width: auto;
+    height: 430px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
 }
 
-.show-Materials-row2 {
-    visibility: visible;
+.content {
+    width: auto;
+    height: auto;
+    display: none;
 }
 
-.show {
-    visibility: visible;
+.content.active {
+    display: block;
+}
+
+.sub-content {
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.sub-content.active {
+    display: block;
 }
 
 #Stone-content {
-    width: 300px;
-    height: 230px;
-    margin-left: -4px;
+    width: 200px;
+    height: 175px;
+    margin-left: 10px;
     background-color: grey;
     text-align: center;
 }
 
 #Stone {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Stone {
+    font-size: 13px;
 }
 
 #Stone-img {
-    width: 150px;
-    height: 100px;
-    margin-left: 38px;
+    width: 90px;
+    height: 60px;
+    margin-inline: auto;
 }
 
 #Stone-img:hover {
@@ -147,62 +209,62 @@ body {
         scale: 1;
     }
     100% {
-        margin-left: 38px;
         scale: 1.2;
     }
 }
 
+#Stone-Upgrades {
+    width: 200px;
+    height: 70px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
 #Stone-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    padding-top: 9px;
+    font-size: 11px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 8px;
-    margin-top: 350px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Stone-up2 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    padding-top: 3px;
+    font-size: 11px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 156px;
-    margin-top: 350px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Wood {
-    font-size: 20px;
+    font-size: 15px;
+    color: rgb(191, 191, 191);
+}
+
+#Gain-Wood {
+    font-size: 13px;
+    color: rgb(191, 191, 191);
 }
 
 #Wood-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 187px;
-    margin-left: 310px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: rgb(53, 21, 0);
     text-align: center;
 }
 
 #Wood-img {
-    width: 130px;
-    height: 140px;
-    margin-left: 42px;
-    margin-top: -5px;
+    width: 80px;
+    height: 70px;
+    margin-inline: auto;
 }
 
 #Wood-img:hover {
@@ -215,95 +277,91 @@ body {
 @keyframes Wood-animation {
     0% {
         scale: 1;
-        margin-left: 42px;
-        margin-top: -5px;
     }
     100% {
         scale: 1.2;
-        margin-left: 38px;
     }
 }
 
+#Wood-Upgrades {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    height: 70px;
+}
+
 #Wood-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 163px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Wood-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 163px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Iron-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 187px;
-    margin-left: 615px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: rgb(241, 241, 241);
     text-align: center;
 }
 
 #Iron {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Iron {
+    font-size: 13px;
+}
+
+#Iron-Upgrades {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 200px;
+    height: 70px;
+    justify-content: space-evenly;
+    margin-top: 10px;
 }
 
 #Iron-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 163px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Iron-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 163px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Ironore-img {
-    width: 100px;
-    height: 80px;
-    margin-top: 25px;
+    width: 70px;
+    height: 50px;
+    margin-top: 10px;
 }
 
 #Ironore-img:hover {
@@ -323,55 +381,53 @@ body {
 }
 
 #Gold-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 187px;
-    margin-left: 920px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: rgb(182, 182, 11);
     text-align: center;
 }
 
 #Gold {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Gold {
+    font-size: 13px;
+}
+
+#Gold-Upgrades {
+    display: flex;
+    height: 70px;
+    margin-top: 10px;
+    justify-content: space-evenly;
 }
 
 #Gold-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Gold-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Goldore-img {
-    width: 100px;
-    height: 80px;
-    margin-top: 25px;
+    width: 70px;
+    height: 50px;
+    margin-top: 10px;
 }
 
 #Goldore-img:hover {
@@ -391,56 +447,54 @@ body {
 }
 
 #Diamond-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 187px;
-    margin-left: 1225px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: aqua;
     text-align: center;
 }
 
 #Diamond {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Diamond {
+    font-size: 13px;
+}
+
+#Diamond-Upgrades {
+    display: flex;
+    height: 70px;
+    justify-content: space-evenly;
+    margin-top: -17px;
 }
 
 #Diamond-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Diamond-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Diamond-img {
-    width: 170px;
-    height: 150px;
-    margin-left: 35px;
-    margin-top: -10px;
+    width: 110px;
+    height: 90px;
+    margin-top: -3px;
+    margin-inline: auto;
 }
 
 #Diamond-img:hover {
@@ -460,56 +514,54 @@ body {
 }
 
 #Ruby-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 425px;
-    margin-left: 4.5px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: rgb(181, 0, 0);
     text-align: center;    
 }
 
 #Ruby {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Ruby {
+    font-size: 13px;
+}
+
+#Ruby-Upgrades {
+    display: flex;
+    height: 70px;
+    justify-content: space-evenly;
+    margin-top: -17px;
 }
 
 #Ruby-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Ruby-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Ruby-img {
-    width: 170px;
-    height: 150px;
-    margin-left: 35px;
-    margin-top: -10px;
+    width: 110px;
+    height: 90px;
+    margin-top: -5px;
+    margin-inline: auto;
 }
 
 #Ruby-img:hover {
@@ -529,56 +581,54 @@ body {
 }
 
 #Emeralds-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 425px;
-    margin-left: 310px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: rgb(19, 191, 19);
     text-align: center;    
 }
 
 #Emerald {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Emerald {
+    font-size: 13px;
+}
+
+#Emerald-Upgrades {
+    display: flex;
+    height: 70px;
+    justify-content: space-evenly;
+    margin-top: -17px;
 }
 
 #Emerald-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Emerald-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 150px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Emerald-img {
-    width: 170px;
-    height: 150px;
-    margin-left: 35px;
-    margin-top: -10px;
+    width: 110px;
+    height: 90px;
+    margin-top: -5px;
+    margin-inline: auto;
 }
 
 #Emerald-img:hover {
@@ -598,56 +648,53 @@ body {
 }
 
 #Titanium-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 425px;
-    margin-left: 615px;
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 175px;
     background-color: rgb(83, 83, 83);
     text-align: center;    
 }
 
 #Titanium {
-    font-size: 20px;
+    font-size: 15px;
+}
+
+#Gain-Titanium {
+    font-size: 13px;
+}
+
+#Titanium-Upgrades {
+    display: flex; 
+    height: 70px;
+    margin-top: 9px;
+    justify-content: space-evenly;
 }
 
 #Titanium-up1 {
-    width: 140px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 9px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Titanium-up2 {
-    width: 150px;
+    width: 95px;
     height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    padding-top: 2px;
     text-align: center;
     background-color: rgb(44, 44, 44);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 145px;
-    margin-top: 165px;
     border: 2px solid black;
     border-radius: 5px;
 }
 
 #Titanium-img {
-    width: 120px;
-    height: 110px;
-    margin-left: 45px;
-    margin-top: 5px;
+    width: 80px;
+    height: 60px;
+    margin-inline: auto;
 }
 
 #Titanium-img:hover {
@@ -668,84 +715,77 @@ body {
 
 .Crafting-content {
     width: auto;
-    height: auto;
-    visibility: hidden;
-}
-
-.show-Crafting-content {
-    visibility: visible;
+    height: 600px;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #Converting-content {
-    width: 450px;
+    width: 350px;
     height: 500px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 190px;
-    margin-left: 5px;
     background-color: rgb(50, 25, 5);
 }
 
 #Converting-name {
     text-align: center;
-    font-size: 28px;
+    font-size: 23px;
     color: white;
 }
 
 #Wood-to-Sticks {
-    width: 440px;
+    width: 340px;
     height: 70px;
     margin-left: 5px;
     margin-top: 23px;
+    display: flex;
     background-color: rgba(100, 65, 0, 0.76);
 }
 
 #Sticks-input {
-    width: 23px;
-    height: 15px;
+    width: 20px;
+    height: 14px;
     margin-top: 4px;
 }
 
 #Wood-img2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 70px;
-    height: 80px;
-    margin-top: 48px;
-    margin-left: 15px;
+    width: 50px;
+    height: 60px;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 
 #Wood-to-Sticks-arrow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 100px;
-    margin-top: 45px;
+    width: 70px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 
 #Stick-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 50px;
-    margin-left: 200px;
-    margin-top: 65px;
+    width: 30px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+#Converting-stuff {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 160px;
+    height: 60px;
+    text-align: center;
+    margin-inline: auto;
+    margin-top: 10px;
 }
 
 #Convert-to-Sticks {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
-    font-size: 17px;
+    font-size: 12px;
     text-align: right;
-    margin-left: 260px;    
-    margin-top: 58px;
     width: 180px;
-    height: 40px;
+    height: 35px;
     background-color: grey;
     text-align: center;
 }
@@ -756,45 +796,49 @@ body {
 }
 
 #Sticks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 17px;
+    font-size: 10px;
+    margin-inline: auto;
+    margin-bottom: 5px;
     color: white;
-    margin-left: 280px;
-    margin-top: 102px;
 }
 
 .Smelting-items {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .show-Smelting-items {
     visibility: visible;
 }
 
+#Stone-Converting-stuff {
+    width: 140px;
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
 #Stone-to-SmoothStone {
-    width: 440px;
+    width: 340px;
     height: 70px;
     margin-left: 5px;
     margin-top: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     background-color: rgba(100, 65, 0, 0.76);
 }
 
 #TurnOnSmoothStoneConverting {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 17px;
+    font-size: 12px;
     text-align: right;
-    margin-left: 260px;    
-    margin-top: 160px;
-    width: 30px;
-    height: 25px;
+    width: 25px;
+    height: 20px;
     background-color: grey;
     text-align: center;
 }
@@ -805,19 +849,14 @@ body {
 }
 
 #TurnOffSmoothStoneConverting {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 17px;
+    font-size: 12px;
     text-align: right;
-    margin-left: 390px;    
-    margin-top: 160px;
-    width: 30px;
-    height: 25px;
+    width: 25px;
+    height: 20px;
     background-color: grey;
     text-align: center;
 }
@@ -829,12 +868,8 @@ body {
 
 #SmoothStone-timer {
     color: white;
-    font-size: 18px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 166px;
-    margin-left: 322px;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 #Convert-to-SmoothStone:hover {
@@ -843,91 +878,76 @@ body {
 }
 
 #SmoothStone {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 17px;
+    font-size: 12px;
     color: white;
-    margin-left: 240px;
-    margin-top: 197px;
+    margin-inline: auto;
 }
 
 #Stone-to-SmoothStone-arrow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 100px;
-    margin-top: 155px;
-    width: 80px;
-    height: 70px;
+    width: 70px;
+    height: 60px;
+    margin-top: 10px;
 }
 
 #Stone-img2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 80px;
-    margin-top: 138px;
-    margin-left: 5px;
+    width: 70px;
+    height: 50px;
+    margin-top: 10px;
 }
 
 #SmoothStone-img {
-    width: 70px;
-    height: 70px;
-    margin-left: 160px;
-    margin-top: -5px;
+    width: 60px;
+    height: 60px;
+    margin-left: -10px;
 }
 
 #Iron-ore-to-Iron {
-    width: 440px;
+    width: 340px;
     height: 70px;
     margin-left: 5px;
     margin-top: 23px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: rgba(100, 65, 0, 0.76);
 }
 
+#Iron-Converting-stuff {
+    width: 150px;
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
 #Iron-ore-img2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 50px;
-    margin-top: 255px;
-    margin-left: 20px;
+    width: 50px;
+    height: 40px;
+    margin-top: 15px;
 }
 
 #Iron-img2 {
-    width: 100px;
-    height: 100px;
-    margin-left: 150px;
-    margin-top: -10px;
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
 }
 
 #Iron-ore-to-Iron-arrow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 100px;
-    margin-top: 245px;
-    width: 80px;
-    height: 70px;
+    width: 70px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 #TurnOnIronConverting {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 17px;
-    text-align: right;
-    margin-left: 260px;    
-    margin-top: 250px;
-    width: 30px;
-    height: 25px;
+    font-size: 12px;
+    width: 25px;
+    height: 20px;
     background-color: grey;
     text-align: center;
 }
@@ -939,28 +959,18 @@ body {
 
 #Iron-timer {
     color: white;
-    font-size: 18px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 256px;
-    margin-left: 315px;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 #TurnOffIronConverting {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 17px;
-    text-align: right;
-    margin-left: 390px;    
-    margin-top: 250px;
-    width: 30px;
-    height: 25px;
+    font-size: 12px;
+    width: 25px;
+    height: 20px;
     background-color: grey;
     text-align: center;
 }
@@ -971,64 +981,56 @@ body {
 }
 
 #Iron2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 17px;
+    font-size: 12px;
     color: white;
-    margin-left: 285px;
-    margin-top: 287px;
 }
 
 #Gold-ore-to-Gold {
-    width: 440px;
+    width: 340px;
     height: 70px;
     margin-left: 5px;
     margin-top: 23px;
     background-color: rgba(100, 65, 0, 0.76);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#Gold-Converting-stuff {
+    width: 130px;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 5px;
 }
 
 #Gold-ore-img2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 50px;
-    margin-top: 345px;
-    margin-left: 20px;
+    width: 50px;
+    height: 40px;
+    margin-top: 20px;
 }
 
 #Gold-ore-to-Gold-arrow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 100px;
-    margin-top: 340px;
-    width: 80px;
-    height: 70px;
+    width: 70px;
+    height: 60px;
+    margin-top: 10px;
+    padding-left: 10px;
 }
 
 #Gold-img2 {
-    width: 100px;
-    height: 100px;
-    margin-left: 150px;
-    margin-top: -10px;
+    width: 80px;
+    height: 80px;
+    margin-top: 2px;
 }
 
 #TurnOnGoldConverting {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 17px;
-    text-align: right;
-    margin-left: 260px;    
-    margin-top: 345px;
-    width: 30px;
-    height: 25px;
+    font-size: 12px;
+    width: 25px;
+    height: 20px;
     background-color: grey;
     text-align: center;
 }
@@ -1040,28 +1042,18 @@ body {
 
 #Gold-timer {
     color: white;
-    font-size: 18px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 350px;
-    margin-left: 315px;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 #TurnOffGoldConverting {
-    position: absolute;
-    top: 0;
-    left: 0;
     color: white;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 17px;
-    text-align: right;
-    margin-left: 390px;    
-    margin-top: 345px;
-    width: 30px;
-    height: 25px;
+    font-size: 12px;
+    width: 25px;
+    height: 20px;
     background-color: grey;
     text-align: center;
 }
@@ -1072,39 +1064,57 @@ body {
 }
 
 #Gold2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 17px;
+    font-size: 12px;
     color: white;
-    margin-left: 285px;
-    margin-top: 382px;
 }
 
 #Craft-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 610px;
+    width: 410px;
     height: 500px;
     background-color: ivory;
-    margin-left: 460px;
-    margin-top: 190px;
 }
 
 #Crafting-name {
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
 }
 
+#Craft-Upgrades {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: space-evenly;
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+}
+
+.Locked-CraftUp {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+} 
+
 #Craft1 {
-    width: 200px;
-    height: 95px;
+    width: 150px;
+    height: 75px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
     background-color: #787366;
-    margin-left: 2px;
-    margin-top: 20px;
+    position: relative;
 }
 
 #Craft1:hover {
@@ -1113,16 +1123,16 @@ body {
 }
 
 #Craft2 {
-    width: 200px;
-    height: 95px;
+    width: 150px;
+    height: 75px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
     background-color: #787366;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 205.5px;
-    margin-top: 55.5px;
+    position: relative;
 }
 
 #Craft2:hover {
@@ -1131,34 +1141,34 @@ body {
 }
 
 #Craft3 {
-    width: 600px;
+    width: 150px;
     height: 75px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
-    background-image: linear-gradient(90deg, rgb(107, 101, 101), rgba(113, 48, 5, 0.816));
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 5px;
-    margin-top: 330px;
+    background-color: #4f4e4a;
+    position: relative;
 }
 
 #Craft3:hover {
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(54, 51, 51);
     cursor: pointer;
 }
 
 #Craft4 {
-    width: 200px;
-    height: 95px;
+    width: 150px;
+    height: 75px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
     background-color: #b0afaa;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 2px;
-    margin-top: 190px;
+    position: relative;
 }
 
 #Craft4:hover {
@@ -1167,16 +1177,16 @@ body {
 }
 
 #Craft5 {
-    width: 200px;
-    height: 95px;
+    width: 150px;
+    height: 75px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
     background-color: #b0afaa;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 205.5px;
-    margin-top: 190px;
+    position: relative;
 }
 
 #Craft5:hover {
@@ -1185,52 +1195,52 @@ body {
 }
 
 #Craft6 {
-    width: 600px;
+    width: 150px;
     height: 75px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
-    background-image: linear-gradient(90deg, rgb(198, 4, 4), rgb(81, 77, 77));
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 5px;
-    margin-top: 415px;
+    background-color: #04aed8;
+    position: relative;
 }
 
 #Craft6:hover {
-    background-color: rgb(39, 38, 38);
+    background-color: rgb(3, 119, 158);
     cursor: pointer;
 }
 
 #Craft7 {
-    width: 200px;
-    height: 95px;
+    width: 380px;
+    height: 90px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
-    background-color: #4f4e4a;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 408px;
-    margin-top: 55.5px;
+    background-image: linear-gradient(90deg, rgb(107, 101, 101), rgba(113, 48, 5, 0.816));
+    position: relative;
 }
 
 #Craft7:hover {
-    background-color: rgb(54, 51, 51);
+    background-color: rgb(83, 79, 79);
     cursor: pointer;
 }
 
 #Craft8 {
-    width: 200px;
-    height: 95px;
+    width: 380px;
+    height: 90px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    padding-top: 5px;
-    background-color: #04aed8;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 408px;
-    margin-top: 190px;
+    background-image: linear-gradient(90deg, rgb(198, 4, 4), rgb(81, 77, 77));
+    position: relative;
 }
 
 #Craft8:hover {
@@ -1281,12 +1291,7 @@ body {
 }
 
 .Craft-knowledge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 1077px;
-    margin-top: 190px;
-    width: 450px;
+    width: 300px;
     height: 500px;
     background-color: rgb(212, 60, 5);
     text-align: center;
@@ -1299,21 +1304,25 @@ body {
 
 #Crafting-knowledge {
     color: white;
-    font-size: 23px;
+    font-size: 16px;
 }
 
 #Craftingk-persec {
     color: rgb(255, 174, 0);
-    font-size: 19px;
+    font-size: 15px;
+}
+
+.Crafting-knowledge-upgrades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 32px;
+    margin-top: 5px;
 }
 
 #Materials-to-Craftingk {
-    width: 440px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 60px;
-    margin-left: 5px;
+    width: 290px;
+    font-size: 12px;
     color: white;
     background-color: #787366;
 }
@@ -1324,16 +1333,12 @@ body {
 }
 
 #Craftk-up1 {
-    width: 440px;
-    height: 60px;
-    padding-top: 7px;
+    width: 290px;
+    height: 55px;
+    padding-top: 10px;
     color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
     background-color: #787366;
-    margin-top: 140px;
-    margin-left: 5px;
+    font-size: 12px;
 }
 
 #Craftk-up1:hover {
@@ -1342,16 +1347,12 @@ body {
 }
 
 #Craftk-up2 {
-    width: 440px;
+    width: 290px;
     height: 95px;
     padding-top: 7px;
     color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
     background-color: #787366;
-    margin-top: 230px;
-    margin-left: 5px;
+    font-size: 12px;
 }
 
 #Craftk-up2:hover {
@@ -1360,16 +1361,12 @@ body {
 }
 
 #Craftk-up3 {
-    width: 440px;
+    width: 290px;
     height: 80px;
     padding-top: 7px;
     color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
     background-color: #787366;
-    margin-top: 360px;
-    margin-left: 5px;
+    font-size: 12px;
 }
 
 #Craftk-up3:hover {
@@ -1379,18 +1376,18 @@ body {
 
 #Note {
     color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-left: 120px;
+    font-size: 13px;
 }
 
-.Experience-content {
-    visibility: hidden;
-}
-
-.show-Experience-content {
-    visibility: visible;
+.Experience-tabs {
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 70px;
+    justify-content: center;
 }
 
 #Ranking-tab {
@@ -1399,11 +1396,6 @@ body {
     padding-top: 5px;
     background-color: rgb(85, 84, 84);
     border: 1.5px solid white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 200px;
-    margin-left: 490px;
     text-align: center;
 }
 
@@ -1413,45 +1405,43 @@ body {
 }
 
 .Ranking-content {
-    text-align: center;
-    width: 500px;
-    height: 400px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 260px;
-    margin-left: 520px;
-    visibility: hidden;
-}
-
-.show-Ranking-content {
-    visibility: visible;
+    width: 400px;
+    height: auto;
+    display: flex;
+    justify-content: none;
+    flex-wrap: wrap;
+    margin-inline: auto;
 }
 
 #Class {
     color: aquamarine;
     font-size: 23px;
+    text-align: center;
 }
 
 #Class-benefits {
     color: rgb(0, 153, 208);
     font-size: 18px;
+    text-align: center;
 }
 
 #Class-Upgrade {
     width: 400px;
     height: auto;
-    text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
     color: rgb(0, 188, 0);
-    position: absolute;
-    top: 0;
-    left: 0;
     background-color: rgb(62, 61, 61);
     border: 1px solid black;
-    margin-top: 50px;
-    margin-left: 50px;
+    text-align: center;
+}
+
+.Progression-Milestones-content {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #Progression-milestone-tab {
@@ -1462,11 +1452,6 @@ body {
     border: 1px solid red;
     color: white;
     text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 200px;
-    margin-left: 660px;
 }
 
 #Progression-milestone-tab:hover {
@@ -1474,54 +1459,34 @@ body {
     cursor: pointer;
 }
 
-.Progression-Milestones-content {
-    visibility: hidden;
-}
-
-.show-Progression-Milestones-content {
-    visibility: visible;
-}
-
 #Milestone1 {
-    width: 400px;
-    height: 115px;
+    width: 300px;
+    height: 95px;
+    font-size: 12px;
     padding-top: 10px;
     background-color: rgb(5, 167, 167);
     border: 1px solid rgb(0, 106, 255);
     text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 240px;
-    margin-left: 120px;
 }
 
 #Milestone2 {
-    width: 400px;
-    height: 115px;
+    width: 300px;
+    height: 95px;
+    font-size: 12px;
     padding-top: 10px;
     background-color: rgb(5, 167, 167);
     border: 1px solid rgb(0, 106, 255);
     text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 240px;
-    margin-left: 560px;
 }
 
 #Milestone3 {
-    width: 400px;
-    height: 110px;
+    width: 300px;
+    height: 90px;
     padding-top: 15px;
+    font-size: 12px;
     background-color: rgb(5, 167, 167);
     border: 1px solid rgb(0, 106, 255);
     text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 240px;
-    margin-left: 1000px;
 }
 
 #Exploration-tab {
@@ -1532,11 +1497,6 @@ body {
     color: white;
     background-image: linear-gradient(90deg, rgb(0, 72, 255), black);
     border: 1px solid white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 200px;
-    margin-left: 900px;
 }
 
 #Exploration-tab:hover {
@@ -1544,6 +1504,57 @@ body {
     animation-name: Exploration-tab-animation;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
+}
+
+#Save-stuff {
+    width: 400px;
+    height: auto;
+    margin-top: 100px;
+    margin-left: 30px;
+    text-align: center;
+}
+
+#Save-text {
+    font-size: 20px;
+    color: white;
+}
+
+#Saving {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    margin-top: 15px;
+}
+
+#Save {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px solid grey;
+}
+
+#Save:hover {
+    background-color: #494946;
+    cursor: pointer;
+}
+
+#Hard-reset {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(203, 0, 0);
+    border: 2px solid maroon;
+}
+
+#Hard-reset:hover {
+    background-color: rgb(164, 0, 0);
+    cursor: pointer;
 }
 
 @keyframes Exploration-tab-animation {
@@ -1562,14 +1573,6 @@ body {
     100% {
         background-image: linear-gradient(90deg, black, rgb(0, 72, 255));
     }
-}
-
-.Exploration-content {
-    visibility: hidden;
-}
-
-.show-Exploration-content {
-    visibility: visible;
 }
 
 #Enemy {
@@ -1662,4 +1665,380 @@ body {
     margin-top: 40px;
     margin-left: 5px;
     opacity: 0;
+}
+
+.Saved-msg {
+    position: fixed;
+    top: 5;
+    left: 5;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(156, 101, 0);
+    border: 2px solid rgb(160, 43, 0);
+    visibility: collapse;
+}
+
+.show-Saved-msg {
+    visibility: visible;
+}
+
+#ChangeLog {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 200;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+#Version {
+    font-size: 18px;
+    color: white;
+}
+
+@media only screen and (min-device-width: 1200px) and (max-width: 2560px) {
+    #Stone,
+    #Wood,
+    #Iron,
+    #Gold,
+    #Diamond,
+    #Ruby,
+    #Emerald,
+    #Titanium {
+        font-size: 18px;
+    }
+
+    #Gain-Stone,
+    #Gain-Wood,
+    #Gain-Iron,
+    #Gain-Gold,
+    #Gain-Diamond,
+    #Gain-Ruby,
+    #Gain-Emerald,
+    #Gain-Titanium {
+        font-size: 15px;
+    }
+    #Stone-content,
+    #Wood-content,
+    #Iron-content,
+    #Gold-content,
+    #Diamond-content,
+    #Ruby-content,
+    #Emeralds-content,
+    #Titanium-content {
+        width: 250px;
+        height: 210px;
+    }
+
+    #Stone-Upgrades,
+    #Wood-Upgrades {
+        width: auto;
+        height: 100px;
+        margin-top: 15px;
+    }
+
+    #Emerald-Upgrades,
+    #Ruby-Upgrades {
+        width: auto;
+        height: 100px;
+        margin-top: 2px;
+    }
+
+    #Iron-Upgrades,
+    #Gold-Upgrades {
+        width: auto;
+        height: 100px;
+        margin-top: 15px;
+    }
+
+    #Diamond-Upgrades {
+        width: auto;
+        height: 100px;
+        margin-top: 1px;
+    }
+
+    #Titanium-Upgrades {
+        width: auto;
+        height: 100px;
+        margin-top: 25px;
+    }
+
+    #Stone-up1,
+    #Wood-up1,
+    #Iron-up1,
+    #Gold-up1,
+    #Diamond-up1,
+    #Ruby-up1,
+    #Emerald-up1,
+    #Titanium-up1 {
+        width: 120px;
+        height: 65px;
+        padding-top: 15px;
+    }
+
+    #Stone-up2,
+    #Gold-up2,
+    #Diamond-up2,
+    #Ruby-up2 {
+        width: 120px;
+        height: 65px;
+        padding-top: 15px;
+    }
+
+    #Wood-up2,
+    #Iron-up2,
+    #Emerald-up2,
+    #Titanium-up2 {
+        width: 120px;
+        height: 70px;
+        padding-top: 10px;
+    }
+
+    #Stone-img,
+    #Iron-img,
+    #Gold-img {
+        width: 90px;
+        height: 70px;
+        margin-inline: auto;
+    }
+
+    #Wood-img {
+        width: 90px;
+        height: 70px;
+    }
+
+    #Converting-content {
+        width: 450px;
+    }
+
+    #Wood-to-Sticks {
+        width: 440px;
+    }
+
+    #Stone-to-Smoothstone {
+        width: 440px;
+    }
+
+    #Iron-ore-to-Iron {
+        width: 440px;
+    }
+
+    #Gold-ore-to-Gold {
+        width: 440px;
+    }
+
+    #Craft-content {
+        width: 600px;
+    }
+
+    #Craft-upgrades {
+        row-gap: 25px;
+    }
+
+    #Craft1,
+    #Craft2,
+    #Craft3,
+    #Craft4,
+    #Craft5,
+    #Craft6 {
+        width: 180px;
+        height: 90px;
+    }
+
+    #Craft7,
+    #Craft8 {
+        width: 570px;
+        height: 100px;
+        font-size: 14px;
+    }
+
+    #Craft-knowledge {
+        width: 450px;
+    }
+
+    #Materials-to-Craftingk,
+    #Craftk-up1,
+    #Craftk-up2,
+    #Craftk-up3 {
+        width: 420px;
+        height: 70px;
+        font-size: 14px;
+    }
+
+    #Materials-to-Craftingk {
+        padding-top: 10px;
+        height: 60px;
+    }
+
+    #Craftk-up1 {
+        padding-top: 10px;
+        height: 60px;
+    }
+
+    #Milestone1,
+    #Milestone2,
+    #Milestone3 {
+        width: 400px;
+        height: 110px;
+        font-size: 14px;
+    }
+
+    #Milestone3 {
+        height: 105px;
+        padding-top: 15px;
+    }
+
+    #Crafting-knowledge {
+        font-size: 20px;
+    }
+
+    #Craftingk-persec {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #Crafting-power {
+        font-size: 20px;
+    }
+
+    #Gain-cp {
+        width: 150px;
+        height: 20px;
+        font-size: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #Materials-tab {
+        width: 100px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    #Crafting-tab {
+        width: 100px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    #Experience-tab {
+        width: 100px;
+        height: 30px;
+        font-size: 13px;
+    }
+    
+    .Materials-content {
+        row-gap: 10px;
+    }
+
+    #Stone-content,
+    #Wood-content,
+    #Iron-content,
+    #Gold-content,
+    #Diamond-content,
+    #Ruby-content,
+    #Emeralds-content,
+    #Titanium-content {
+        width: 120px;
+        height: 160px;
+    }
+
+    #Stone,
+    #Wood,
+    #Iron,
+    #Gold,
+    #Diamond,
+    #Ruby,
+    #Emerald,
+    #Titanium {
+        font-size: 12px;
+    }
+
+    #Gain-Stone,
+    #Gain-Wood,
+    #Gain-Iron,
+    #Gain-Gold,
+    #Gain-Diamond,
+    #Gain-Ruby,
+    #Gain-Emerald,
+    #Gain-Titanium {
+        font-size: 11px;
+    }
+
+    #Stone-upgrades,
+    #Wood-upgrades,
+    #Iron-upgrades,
+    #Gold-upgrades,
+    #Diamond-upgrades,
+    #Ruby-upgrades,
+    #Emerald-upgrades,
+    #Titanium-upgrades {
+        width: 115px;
+        height: 60px;
+    }
+
+    #Stone-up1,
+    #Wood-up1,
+    #Iron-up1,
+    #Gold-up1,
+    #Diamond-up1,
+    #Ruby-up1,
+    #Emerald-up1,
+    #Titanium-up1 {
+        font-size: 8px;
+        padding: 0;
+    }
+
+    #Stone-up1,
+    #Wood-up1,
+    #Iron-up1,
+    #Gold-up1 {
+        padding-top: 10px;
+    }
+
+    #Ruby-up1,
+    #Emerald-up1 {
+        padding-top: 5px;
+    }
+
+    #Stone-up2,
+    #Wood-up2,
+    #Iron-up2,
+    #Gold-up2,
+    #Diamond-up2,
+    #Ruby-up2,
+    #Emerald-up2,
+    #Titanium-up2 {
+        font-size: 8px;
+        padding: 0;
+    } 
+
+    #Diamond-up2 {
+        width: 105px;
+    }
+
+    #Titanium-up1,
+    #Titanium-up2 {
+        font-size: 7px;
+    }
+
+    #Titanium-up1 {
+        padding-top: 7px;
+    }
+
+    #Converting-content {
+        width: 350px;
+        height: 300px;
+        margin-top: -25px;
+    }
 }

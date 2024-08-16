@@ -96,7 +96,7 @@ function TurnOnNoTimewall() {
 
 function TurnOnExperiencedCrafter() {
     if(ExperiencedCrafterOn === false) {
-        ExperiencedCrafterOn= true
+        ExperiencedCrafterOn = true
         NoTimewallOn = false
         PowerSourceOn = false
         UsageOfUpgrades = UsageOfUpgrades.add(1)

@@ -469,6 +469,8 @@ function Gameloop() {
     document.getElementById("Ruby-up2-cost").textContent = "Cost: " + formatWhole(Upgrades.Ruby_up2.cost)
     document.getElementById("Emerald-up1-cost").textContent = "Cost: " + formatWhole(Upgrades.Emerald_up1.cost)
     document.getElementById("Emerald-up2-cost").textContent = "Cost: " + formatWhole(Upgrades.Emerald_up2.cost)
+    document.getElementById("Titanium-up1-cost").textContent = "Cost: " + format(Upgrades.Titanium_up1.cost, precision = 2)
+    document.getElementById("Titanium-up2-cost").textContent = "Cost: " + format(Upgrades.Titanium_up2.cost, precision = 2)
     document.getElementById("Sticks").textContent = "You have " + formatWhole(player.Sticks) + " Sticks"
     document.getElementById("SmoothStone").textContent = "You have " + formatWhole(player.Smooth_Stone) + " Smooth Stone"
     document.getElementById("Iron2").textContent = "You have " + formatWhole(player.Iron) + " Iron"
@@ -478,6 +480,35 @@ function Gameloop() {
     document.getElementById("Gold-timer").textContent = format(player.Gold_timer) + "s"
     document.getElementById("Crafting-knowledge").textContent = "You have " + format(player.Crafting_knowledge) + " Crafting Knowledge"
     document.getElementById("Craftingk-persec").textContent = "(+" + format(player.Craftingk_persec) + "/sec)"
+    document.getElementById("Level").textContent = "Level " + formatWhole(player.Level) + " | " + formatWhole(player.Levelamt) + "/" + formatWhole(player.LevelReq) + " lvl exp"
+    if (player.Levelamt.gte(player.LevelReq)) {
+        player.Level = player.Level.add(1)
+        player.Levelamt = new Decimal(0)
+    }
+    if(player.Level.eq(1)) {
+        player.LevelReq = new Decimal(30)
+        document.getElementById("LCU-4").style.visibility = "hidden"
+        document.getElementById("LCU-5").style.visibility = "hidden"
+    }
+    if(player.Level.eq(2)) {
+        player.LevelReq = new Decimal(50)
+        document.getElementById("LCU-6").style.visibility = "hidden"
+    }
+    if(player.Level.eq(3)) {
+        player.LevelReq = new Decimal(100)
+        document.getElementById("LCU-3").style.visibility = "hidden"
+    }
+    if(player.Level.eq(4)) {
+        player.LevelReq = new Decimal(250)
+        document.getElementById("LCU-7").style.visibility = "hidden"
+    }
+    if(player.Level.eq(5)) {
+        player.LevelReq = new Decimal(500)
+        document.getElementById("LCU-8").style.visibility = "hidden"
+    }
+    if(player.Level.gte(6)) {
+        document.getElementById("Level").textContent = "Level 6 | 0/infinity lvl exp"
+    }
     if (player.Stone.gte(Upgrades.Stone_up1.cost)) {
         document.getElementById("Stone-up1").style.backgroundColor = "silver"
         document.getElementById("Stone-up1").style.cursor = "pointer"
@@ -519,8 +550,8 @@ function Gameloop() {
         document.getElementById("Iron-up1").style.cursor = "default"
     }
     if (player.Iron_ore.gte(Upgrades.Iron_ore_up2.cost)) {
-        document.getElementById("Stone-up2").style.backgroundColor = "grey"
-        document.getElementById("Stone-up2").style.cursor = "pointer"
+        document.getElementById("Iron-up2").style.backgroundColor = "grey"
+        document.getElementById("Iron-up2").style.cursor = "pointer"
     }
     if (player.Iron_ore.lt(Upgrades.Iron_ore_up2.cost)) {
         document.getElementById("Iron-up2").style.backgroundColor = "rgb(44,44,44)"
@@ -843,6 +874,17 @@ function Gameloop() {
         Experience_name.classList.add("show-Expirience-name")
         Gain_exp.classList.add("show-Gain-exp")
         Experience_tab.classList.add("show-Experience-tab")
+    }
+    if(all_content[1]) {
+        if(Craft_Upgrades.Craft_up3.bought === true) {
+            document.querySelector(".Smelting-items").style.visibility = "visible"
+            document.querySelector(".Craft-knowledge").style.visibility = "visible"
+        }
+    }
+    if(all_content[0]) {
+        if(Craft_Upgrades.Craft_up8.bought === true) {
+            document.querySelector(".Materials-row2").style.visibility = "visible"
+        }
     }
 }
 

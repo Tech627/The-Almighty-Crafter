@@ -1,6 +1,9 @@
 let player = {
     Crafting_power: new Decimal(0),
     Crafting_power_persec: new Decimal(0),
+    Level: new Decimal(0),
+    LevelReq: new Decimal(10),
+    Levelamt: new Decimal(0),
     Stone: new Decimal(0),
     Smooth_Stone: new Decimal(0),
     Smooth_Stone_timer: new Decimal(5),

@@ -1,5 +1,10 @@
 function Save() {
     if(localStorage) {
+        localStorage.setItem("Crafting-power", JSON.stringify(player.Crafting_power))
+        localStorage.setItem("Crafting-power-persec", JSON.stringify(player.Crafting_power_persec))
+        localStorage.setItem("Level", JSON.stringify(player.Level))
+        localStorage.setItem("Level-req", JSON.stringify(player.LevelReq))
+        localStorage.setItem("Level-amt", JSON.stringify(player.Levelamt))
         localStorage.setItem("Stone", JSON.stringify(player.Stone))
         localStorage.setItem("Gain-Stone", JSON.stringify(player.Gain_Stone))
         localStorage.setItem("Stone-persec", JSON.stringify(player.Stone_perSec))
@@ -55,6 +60,8 @@ function Save() {
         localStorage.setItem("Craft6-bought", JSON.stringify(Craft_Upgrades.Craft_up6.bought))
         localStorage.setItem("Craft7-bought", JSON.stringify(Craft_Upgrades.Craft_up7.bought))
         localStorage.setItem("Craft8-bought", JSON.stringify(Craft_Upgrades.Craft_up8.bought))
+        localStorage.setItem("Crafting-knowledge", JSON.stringify(player.Crafting_knowledge))
+        localStorage.setItem("Craftingk-persec", JSON.stringify(player.Craftingk_persec))
         localStorage.setItem("PowerSourceOn", JSON.stringify(PowerSourceOn))
         localStorage.setItem("NoTimewallOn", JSON.stringify(NoTimewallOn))
         localStorage.setItem("ExperiencedCrafter", JSON.stringify(ExperiencedCrafterOn))
@@ -63,6 +70,11 @@ function Save() {
 
 function Get() {
     if(localStorage) {
+        const SavedCraftingPower = localStorage.getItem("Crafting-power")
+        const SavedCraftingPperSec = localStorage.getItem("Crafting-power-persec")
+        const SavedLevel = localStorage.getItem("Level")
+        const SavedLevelReq = localStorage.getItem("Level-req")
+        const SavedLevelamt = localStorage.getItem("Level-amt")
         const SavedStone = localStorage.getItem("Stone")
         const SavedGainStone = localStorage.getItem("Gain-Stone")
         const SavedStonePerSec = localStorage.getItem("Stone-persec")
@@ -118,9 +130,26 @@ function Get() {
         const SavedCraft6Bought = localStorage.getItem("Craft6-bought")
         const SavedCraft7Bought = localStorage.getItem("Craft7-bought")
         const SavedCraft8Bought = localStorage.getItem("Craft8-bought")
+        const SavedCraftingKnowledge = localStorage.getItem("Crafting-knowledge")
+        const SavedCraftingkPerSec = localStorage.getItem("Craftingk-persec")
         const SavedPowerSourceOn = localStorage.getItem("PowerSourceOn")
         const SavedNoTimewallOn = localStorage.getItem("NoTimewallOn")
         const SavedExperiencedCrafterOn = localStorage.getItem("ExperiencedCrafterOn")
+        if(SavedCraftingPower) {
+            player.Crafting_power = new Decimal(JSON.parse(SavedCraftingPower))
+        }
+        if(SavedCraftingPperSec) {
+            player.Crafting_power_persec = new Decimal(JSON.parse(SavedCraftingPperSec))
+        }
+        if(SavedLevel) {
+            player.Level = new Decimal(JSON.parse(SavedLevel))
+        }
+        if(SavedLevelReq) {
+            player.LevelReq = new Decimal(JSON.parse(SavedLevelReq))
+        }
+        if(SavedLevelamt) {
+            player.Levelamt = new Decimal(JSON.parse(SavedLevelamt))
+        }     
         if(SavedStone) {
             player.Stone = new Decimal(JSON.parse(SavedStone))
         }
@@ -286,6 +315,12 @@ function Get() {
         if(SavedCraft8Bought) {
             Craft_Upgrades.Craft_up8.bought = JSON.parse(SavedCraft8Bought)
         }
+        if(SavedCraftingKnowledge) {
+            player.Crafting_knowledge = new Decimal(JSON.parse(SavedCraftingKnowledge))
+        }
+        if(SavedCraftingkPerSec) {
+            player.Craftingk_persec = new Decimal(JSON.parse(SavedCraftingkPerSec))
+        }
         if(SavedPowerSourceOn) {
             PowerSourceOn = JSON.parse(SavedPowerSourceOn)
         }
@@ -298,4 +333,24 @@ function Get() {
     }
 }
 
-setInterval(Save, 30000)
+function HardReset() {
+    if(confirm("Are you sure you want to do this.. You can save this world just by continuing..")) {
+        localStorage.clear()
+    } 
+}
+
+var SavedTimer = new Decimal(0)
+
+setInterval(() => {
+    SavedTimer = SavedTimer.add(1).div(33)
+    if(SavedTimer.gte(30)) {
+        document.getElementById("Saved-msg").classList.add("show-Saved-msg")
+    }
+    if(SavedTimer.gte(35)) {
+        document.getElementById("Saved-msg").classList.remove("show-Saved-msg")
+    }
+}, 33)
+
+setInterval(() => {
+    Save()
+}, 30000)
