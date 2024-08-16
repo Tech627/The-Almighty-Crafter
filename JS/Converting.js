@@ -4,6 +4,7 @@ let IronOn = false
 let IronOff = true
 let GoldOn = false
 let GoldOff = true
+let ConvertingBoost = false
 let PowerSourceOn = false
 let NoTimewallOn = false
 let ExperiencedCrafterOn = false
@@ -55,6 +56,12 @@ function TurnOffGoldConverting() {
     if(GoldOn === true) {
         GoldOff = true 
         GoldOn = false
+    }
+}
+
+function TurnOnConvertingBoost() {
+    if(ConvertingBoost === false) {
+        ConvertingBoost = true
     }
 }
 

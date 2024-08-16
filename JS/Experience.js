@@ -31,6 +31,7 @@ function ExperienceReset() {
         Experience.points = Experience.points.add(player.Crafting_knowledge.div(1000))
         Experience.Unlocked = true
         Experience.DidAReset = true
+        Progress.fifth.done = true
     }
 }
 

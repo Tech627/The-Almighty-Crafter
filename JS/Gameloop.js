@@ -478,25 +478,54 @@ function Gameloop() {
     document.getElementById("SmoothStone-timer").textContent = format(player.Smooth_Stone_timer) + "s"
     document.getElementById("Iron-timer").textContent = format(player.Iron_timer) + "s"
     document.getElementById("Gold-timer").textContent = format(player.Gold_timer) + "s"
+    document.getElementById("Cb-available").textContent = "Available in " + formatTime(player.Cb_av)
+    document.getElementById("Cb-time").textContent = "Lasts for " + formatTime(player.Cb_timer)
     document.getElementById("Crafting-knowledge").textContent = "You have " + format(player.Crafting_knowledge) + " Crafting Knowledge"
     document.getElementById("Craftingk-persec").textContent = "(+" + format(player.Craftingk_persec) + "/sec)"
     document.getElementById("Level").textContent = "Level " + formatWhole(player.Level) + " | " + formatWhole(player.Levelamt) + "/" + formatWhole(player.LevelReq) + " lvl exp"
+    if(Progress.first.done === false) {
+        document.getElementById("Background-filling").style.width = (player.Level.div(1)).mul(100) + "%"
+        document.getElementById("Progress-req").textContent = "Get to Level 1"
+    }
+    if(Progress.second.done === false && Progress.first.done === true) {
+        document.getElementById("Background-filling").style.width = (player.Stone.div(2000)).mul(100) + "%"
+        document.getElementById("Progress-req").textContent = "Get 2000 Stone"
+    }
+    if(Progress.third.done === false && Progress.second.done === true) {
+        document.getElementById("Background-filling").style.width = (player.Level.div(5)).mul(100) + "%"
+        document.getElementById("Progress-req").textContent = "Get to Level 5"
+    }
+    if(Progress.fourth.done === false && Progress.third.done === true) {
+        document.getElementById("Background-filling").style.width = (Craft_Upgrades.Craft_up8.bought.div(1)).mul(100) + "%"
+        document.getElementById("Progress-req").textContent = "Buy the Portal"
+    }
+    if(Progress.fifth.done === false && Progress.fourth.done === true) {
+        document.getElementById("Background-filling").style.width = 0
+        document.getElementById("Progress-req").textContent = "Get to the next layer..."
+    }
+    if(Progress.fifth.done === true) {
+        document.getElementById("Progress-req").textContent = "You unlocked everything... For now."
+    }
+    if(player.Stone.gte(2000)) {
+        Progress.second.done = true
+    }
     if (player.Levelamt.gte(player.LevelReq)) {
         player.Level = player.Level.add(1)
         player.Levelamt = new Decimal(0)
     }
     if(player.Level.eq(1)) {
         player.LevelReq = new Decimal(30)
-        document.getElementById("LCU-4").style.visibility = "hidden"
-        document.getElementById("LCU-5").style.visibility = "hidden"
+        Progress.first.done = true
+        document.getElementById("LCU-3").style.visibility = "hidden"
     }
     if(player.Level.eq(2)) {
         player.LevelReq = new Decimal(50)
-        document.getElementById("LCU-6").style.visibility = "hidden"
+        document.getElementById("LCU-4").style.visibility = "hidden"
+        document.getElementById("LCU-5").style.visibility = "hidden"
     }
     if(player.Level.eq(3)) {
         player.LevelReq = new Decimal(100)
-        document.getElementById("LCU-3").style.visibility = "hidden"
+        document.getElementById("LCU-6").style.visibility = "hidden"
     }
     if(player.Level.eq(4)) {
         player.LevelReq = new Decimal(250)
@@ -505,6 +534,7 @@ function Gameloop() {
     if(player.Level.eq(5)) {
         player.LevelReq = new Decimal(500)
         document.getElementById("LCU-8").style.visibility = "hidden"
+        Progress.third.done = true
     }
     if(player.Level.gte(6)) {
         document.getElementById("Level").textContent = "Level 6 | 0/infinity lvl exp"
@@ -721,8 +751,27 @@ function Gameloop() {
     player.Titanium = player.Titanium.add(player.Titanium_persec.div(20))
     player.Crafting_knowledge = player.Crafting_knowledge.add(player.Craftingk_persec.div(20))
     player.Crafting_power = player.Crafting_power.add(player.Crafting_power_persec.div(20))
+    if(ConvertingBoost === true && player.Cb_av.eq(0) && Craft_Upgrades.Craft_up3.bought === true) {
+        player.Cb_timer = player.Cb_timer.sub(new Decimal(1).div(20))
+    }
+    if(player.Cb_timer.lte(0) && player.Cb_av.eq(0) && Craft_Upgrades.Craft_up3.bought === true) {
+        player.Cb_timer = new Decimal(60)
+        player.Cb_av = new Decimal(90)
+        ConvertingBoost = false
+    }
+    if(Craft_Upgrades.Craft_up3.bought === true) {
+        player.Cb_av = player.Cb_av.sub(new Decimal(1).div(20))
+    }
+    if(player.Cb_av.lte(0)) {
+        player.Cb_av = new Decimal(0)
+    }
     if (SmoothStoneOn === true) {
-        player.Smooth_Stone_timer = player.Smooth_Stone_timer.sub(new Decimal(1).div(20))
+        if(ConvertingBoost === false) {
+            player.Smooth_Stone_timer = player.Smooth_Stone_timer.sub(new Decimal(1).div(20))
+        }
+        if(ConvertingBoost === true) {
+            player.Smooth_Stone_timer = player.Smooth_Stone_timer.sub(new Decimal(1).div(30))
+        }
     }
     if (SmoothStoneOff === true) {
         player.Smooth_Stone_timer = player.Smooth_Stone_timer.sub(0)
@@ -743,7 +792,12 @@ function Gameloop() {
         }
     }
     if (IronOn === true) {
-        player.Iron_timer = player.Iron_timer.sub(new Decimal(1).div(20))
+        if(ConvertingBoost === false) {
+            player.Iron_timer = player.Iron_timer.sub(new Decimal(1).div(20))
+        }
+        else {
+            player.Iron_timer = player.Iron_timer.sub(new Decimal(1).div(30))
+        }
     }
     if (IronOff === true) {
         player.Iron_timer = player.Iron_timer.sub(0)
@@ -764,7 +818,12 @@ function Gameloop() {
         }
     }
     if (GoldOn === true) {
-        player.Gold_timer = player.Gold_timer.sub(new Decimal(1).div(20))
+        if(ConvertingBoost === false) {
+            player.Gold_timer = player.Gold_timer.sub(new Decimal(1).div(20))
+        }
+        else {
+            player.Gold_timer = player.Gold_timer.sub(new Decimal(1).div(30))
+        }
     }
     if (GoldOff === true) {
         player.Gold_timer = player.Gold_timer.sub(0)

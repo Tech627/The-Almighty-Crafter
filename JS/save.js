@@ -52,6 +52,8 @@ function Save() {
         localStorage.setItem("Smooth-Stone-timer", JSON.stringify(player.Smooth_Stone_timer))
         localStorage.setItem("Iron-timer", JSON.stringify(player.Iron_timer))
         localStorage.setItem("Gold-timer", JSON.stringify(player.Gold_timer))
+        localStorage.setItem("Cb-timer", JSON.stringify(player.Cb_timer))
+        localStorage.setItem("Cb-av", JSON.stringify(player.Cb_av))
         localStorage.setItem("Craft1-bought", JSON.stringify(Craft_Upgrades.Craft_up1.bought))
         localStorage.setItem("Craft2-bought", JSON.stringify(Craft_Upgrades.Craft_up2.bought))
         localStorage.setItem("Craft3-bought", JSON.stringify(Craft_Upgrades.Craft_up3.bought))
@@ -122,6 +124,8 @@ function Get() {
         const SavedSmoothStoneTimer = localStorage.getItem("Smooth-Stone-timer")
         const SavedIronTimer = localStorage.getItem("Iron-timer")
         const SavedGoldTimer = localStorage.getItem("Gold-timer")
+        const SavedCbTimer = localStorage.getItem("Cb-timer")
+        const SavedCbAv = localStorage.getItem("Cb-av")
         const SavedCraft1Bought = localStorage.getItem("Craft1-bought")
         const SavedCraft2Bought = localStorage.getItem("Craft2-bought")
         const SavedCraft3Bought = localStorage.getItem("Craft3-bought")
@@ -291,6 +295,12 @@ function Get() {
         if(SavedGoldTimer) {
             player.Gold_timer = new Decimal(JSON.parse(SavedGoldTimer))
         }
+        if(SavedCbTimer) {
+            player.Cb_timer = new Decimal(JSON.parse(SavedCbTimer))
+        }
+        if(SavedCbAv) {
+            player.Cb_av = new Decimal(JSON.parse(SavedCbAv))
+        }
         if(SavedCraft1Bought) {
             Craft_Upgrades.Craft_up1.bought = JSON.parse(SavedCraft1Bought)
         }
@@ -336,6 +346,7 @@ function Get() {
 function HardReset() {
     if(confirm("Are you sure you want to do this.. You can save this world just by continuing..")) {
         localStorage.clear()
+        location.reload()
     } 
 }
 

@@ -4,9 +4,13 @@ let player = {
     Level: new Decimal(0),
     LevelReq: new Decimal(10),
     Levelamt: new Decimal(0),
+    ProgressBar: new Decimal(0),
     Stone: new Decimal(0),
     Smooth_Stone: new Decimal(0),
     Smooth_Stone_timer: new Decimal(5),
+    Cb_timer: new Decimal(60),
+    Cb_boost: new Decimal(1.5),
+    Cb_av: new Decimal(90),
     Wood: new Decimal(0),
     Iron: new Decimal(0),
     Iron_timer: new Decimal(15),
@@ -39,6 +43,24 @@ let player = {
     Titanium: new Decimal(0),
     Titanium_gain: new Decimal(0.01),
     Titanium_persec: new Decimal(0.005)
+}
+
+let Progress = {
+    first: {
+        done: false
+    },
+    second: {
+        done: false
+    },
+    third: {
+        done: false
+    },
+    fourth: {
+        done: false
+    },
+    fifth: {
+        done: false
+    }
 }
 
 function GainCp() {

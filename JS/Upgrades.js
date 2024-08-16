@@ -264,6 +264,7 @@ function BuyCraftUp3() {
         player.Stone = player.Stone.sub(1000)
         player.Crafting_power = player.Crafting_power.sub(100)
         Craft_Upgrades.Craft_up3.bought = true
+        player.Levelamt = player.Levelamt.add(30)
     }
 }
 
@@ -278,6 +279,7 @@ function BuyCraftUp4() {
         player.Crafting_power = player.Crafting_power.sub(125)
         player.Gain_Stone = player.Gain_Stone.add(Craft_Upgrades.Craft_up4.effect)
         Craft_Upgrades.Craft_up4.bought = true
+        player.Levelamt = player.Levelamt.add(25)
     }
 }
 
@@ -292,6 +294,7 @@ function BuyCraftUp5() {
         player.Crafting_power = player.Crafting_power.sub(300)
         player.Gain_Wood = player.Gain_Wood.add(Craft_Upgrades.Craft_up5.effect)
         Craft_Upgrades.Craft_up5.bought = true
+        player.Levelamt = player.Levelamt.add(25)
     }
 }
 
@@ -307,6 +310,7 @@ function BuyCraftUp6() {
         player.Gain_Stone = player.Gain_Stone.add(100)
         player.Gain_Wood = player.Gain_Wood.add(150)
         Craft_Upgrades.Craft_up6.bought = true
+        player.Levelamt = player.Levelamt.add(100)
     }
 }
 
@@ -320,6 +324,7 @@ function BuyCraftUp7() {
         player.Wood = player.Wood.sub(500)
         player.Crafting_power = player.Crafting_power.sub(200)
         Craft_Upgrades.Craft_up7.bought = true
+        player.Levelamt = player.Levelamt.add(250)
     }
 }
 
@@ -337,5 +342,7 @@ function BuyCraftUp8() {
         player.Gold = player.Gold.sub(100)
         player.Smooth_Stone = player.Smooth_Stone.sub(1500)
         Craft_Upgrades.Craft_up7.bought = true
+        player.Levelamt = player.Levelamt.add(500)
+        Progress.fourth.done = true
     }
 }

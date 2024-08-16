@@ -189,6 +189,12 @@
                         <div id="Gold2"> You have 0 Gold </div>
                     </div>
                 </div>
+                <div id="Converting-boost" onclick="TurnOnConvertingBoost()">
+                    <div id="description"> Boost your Converting process by 1.5x </div>
+                    <div id="Cb-available"> Available in 20 seconds </div>
+                    <div id="Cb-time"> Lasts for 1 minute </div>
+                    <div id="Turn-on-Cb"> Turn On </div>
+                </div>
             </div>
         </div>
         <div id="Craft-content">
@@ -204,23 +210,23 @@
                 </div>
                 <div id="Craft3" onclick="BuyCraftUp3()">
                     <div id="Craft3-name"> Furnace </div>
-                    <div id="Craft3-description"> for 2000 Stone Unlock the Furnace to smelt Iron and Gold ore <br> req: 100 Crafting Power <br> +100 lvl exp </div>
-                    <div class="Locked-CraftUp" id="LCU-3"> Locked <br> Requires: Level 3 </div>
+                    <div id="Craft3-description"> for 2000 Stone Unlock the Furnace to smelt Iron and Gold ore <br> req: 100 Crafting Power <br> +30 lvl exp </div>
+                    <div class="Locked-CraftUp" id="LCU-3"> Locked <br> Requires: Level 1 </div>
                 </div>
                 <div id="Craft4" onclick="BuyCraftUp4()">
                     <div id="Craft4-name"> Iron Pickaxe </div>
-                    <div id="Craft4-description"> For 100 sticks and 20 Iron get a pickaxe which gets you +40 Stone/click <br> req: 125 Crafting Power <br> +15 lvl exp </div>
-                    <div class="Locked-CraftUp" id="LCU-4"> Locked <br> Requires: Level 1 </div>
+                    <div id="Craft4-description"> For 100 sticks and 20 Iron get a pickaxe which gets you +40 Stone/click <br> req: 125 Crafting Power <br> +25 lvl exp </div>
+                    <div class="Locked-CraftUp" id="LCU-4"> Locked <br> Requires: Level 2 </div>
                 </div>
                 <div id="Craft5" onclick="BuyCraftUp5()">
                     <div id="Craft5-name"> Iron Axe </div>
-                    <div id="Craft5-description"> For 100 sticks and 50 Iron get a pickaxe which gets you +60 Wood/click <br> req: 300 Crafting Power <br> +15 lvl exp </div>
-                    <div class="Locked-CraftUp" id="LCU-5"> Locked <br> Requires: Level 1 </div>
+                    <div id="Craft5-description"> For 100 sticks and 50 Iron get a pickaxe which gets you +60 Wood/click <br> req: 300 Crafting Power <br> +25 lvl exp </div>
+                    <div class="Locked-CraftUp" id="LCU-5"> Locked <br> Requires: Level 2 </div>
                 </div>
                 <div id="Craft6" onclick="BuyCraftUp6()">
                     <div id="Craft6-name"> Diamond Tools </div>
-                    <div id="Craft6-description"> for 400 Diamond and 200 Sticks get +100 Stone/click and +150 Wood/click <br> req: 500 Crafting Power <br> +50 lvl exp </div>
-                    <div class="Locked-CraftUp" id="LCU-6"> Locked <br> Requires: Level 2 </div>
+                    <div id="Craft6-description"> for 400 Diamond and 200 Sticks get +100 Stone/click and +150 Wood/click <br> req: 500 Crafting Power <br> +100 lvl exp </div>
+                    <div class="Locked-CraftUp" id="LCU-6"> Locked <br> Requires: Level 3 </div>
                 </div>
                 <div id="Craft7" onclick="BuyCraftUp7()">
                     <div id="Craft7-name"> Automation Age </div>
@@ -313,15 +319,21 @@
             </div>
         </div>
         <div id="ChangeLog">
-            <div id="Version"> Version 0.2.1 
-                <br>- Added Leveling system
-                <br>- Fixed many bugs
-                <br>- Fixed UI issues
+            <div id="Version"> Version 0.2.1.1 
+                <br>- Added a boost to converting stuff
+                <br>- Fixed a bug where converting is unlocked before furnace
+                <br>- Fixed Hard Reset actually not reseting
+                <br>- Added a progress bar
+                <br>- Changed the Level req for furnace cuz I realized I am a little dumb for doing it ;-;
             </div>
         </div>
     </div>
     <div class="Level" id="Level">
         <div id="Level-amt"> Level 0 | 0/10 lvl exp </div>
+    </div>
+    <div class="Progress-bar" id="Progress-bar">
+        <div id="Background-filling"></div>
+        <div id="Progress-req"> Get to Level 1 </div>
     </div>
     <div class="Saved-msg" id="Saved-msg">
         Saved!

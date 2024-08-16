@@ -51,12 +51,36 @@ body {
 
 .Level {
     position: fixed;
-    bottom: 0;
+    bottom: 40;
     left: 0;
     background-color: #04aed8;
     border: 2px solid blue;
     padding: 5px;
     margin: 5px;
+}
+
+.Progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 5px;
+    width: 98.5%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(56, 56, 56);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Background-filling {
+    width: 0%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: lime;
+    position: absolute;
+    left: 0;
+    z-index: -1;
 }
 
 #Materials-tab {
@@ -153,6 +177,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 10px;
+    visibility: hidden;
 }
 
 .content {
@@ -803,11 +828,38 @@ body {
 }
 
 .Smelting-items {
-    visibility: visible;
+    visibility: hidden;
 }
 
 .show-Smelting-items {
     visibility: visible;
+}
+
+#Converting-boost {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    color: white;
+}
+
+#Turn-on-Cb {
+    width: 150px;
+    height: 30px;
+    background-color: #494946;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Turn-on-Cb:hover {
+    background-color: #43413b;
+    cursor: pointer;
 }
 
 #Stone-Converting-stuff {
